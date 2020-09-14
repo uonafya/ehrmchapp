@@ -17,7 +17,14 @@
   		    http://www.springframework.org/schema/util
   		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
-	<!-- Add here beans related to the API context -->
+    <!-- Add here beans related to the API context -->
+    <bean id= "mchapp.app.stores" factory-bean="kenyacore.appFactoryBean" factory-method="createInstance">
+        <constructor-arg value="mchapp.stores"/>
+        <constructor-arg value="Mch stores"/>
+        <constructor-arg value="mchapp/stores.page"/>
+        <constructor-arg value="mchapp:apps/mch.jpg"/>
+        <constructor-arg value="680"/>
+    </bean>
 	<bean id="mchService"
 			class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MchServiceImpl">
 	</bean>
