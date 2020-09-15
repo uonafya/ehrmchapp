@@ -5,7 +5,7 @@ import org.openmrs.EncounterType;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.PatientDashboardService;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.model.TriageDetail;
 import org.openmrs.module.mchapp.model.TriageSummary;
@@ -32,13 +32,13 @@ public class TriageSummaryFragmentController {
 		
 		if (mchService.enrolledInANC(patient)) {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE);
 		} else if (mchService.enrolledInPNC(patient)) {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE);
 		} else {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE);
 		}
 		
 		List<Encounter> encounters = dashboardService.getEncounter(patient, null, mchEncType, null);

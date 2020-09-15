@@ -12,8 +12,8 @@
 			${project.parent.description}
 	</description>
 
-	<activator>${project.parent.groupId}.${project.parent.artifactId}.MCHAppModuleActivator</activator>
-
+	<activator>org.openmrs.module.mchapp.MCHAppActivator</activator>
+`
 	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
 	<!-- /Base Module Properties -->
 

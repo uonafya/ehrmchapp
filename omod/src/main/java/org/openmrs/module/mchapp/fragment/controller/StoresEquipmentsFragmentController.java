@@ -14,7 +14,10 @@ import java.util.List;
 /**
  * @author Stanslaus Odhiambo Created on 9/4/2016.
  */
-public class StoresEquipmentsFragmentController {
+public class
+
+
+StoresEquipmentsFragmentController {
 	
 	private ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
 	

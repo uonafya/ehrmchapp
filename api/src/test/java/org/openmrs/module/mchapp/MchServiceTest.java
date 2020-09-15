@@ -29,7 +29,7 @@ import org.openmrs.module.hospitalcore.model.InventoryDrugFormulation;
 import org.openmrs.module.hospitalcore.model.OpdDrugOrder;
 import org.openmrs.module.hospitalcore.model.OpdTestOrder;
 import org.openmrs.module.ehrinventory.InventoryService;
-import org.openmrs.module.mchapp.MchMetadata._MchProgram;
+import org.openmrs.module.mchapp.EhrMchMetadata._MchProgram;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
@@ -39,12 +39,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MchServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-	MchMetadata mchMetadata;
+	EhrMchMetadata ehrMchMetadata;
 	
 	@Before
 	public void setup() throws Exception {
 		executeDataSet("mch-programs.xml");
-		mchMetadata.install();
+		ehrMchMetadata.install();
 	}
 	
 	@Test
@@ -289,12 +289,12 @@ public class MchServiceTest extends BaseModuleContextSensitiveTest {
 		
 		Assert.assertNull(drugOrder.getOpdDrugOrderId());
 		Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-		    MchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE, location);
+		    EhrMchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE, location);
 		
 		Assert.assertNotNull(encounter.getId());
 		Assert.assertThat(encounter.getLocation(), equalTo(location));
 		Assert.assertThat(encounter.getAllObs().size(), is(1));
-		Assert.assertThat(encounter.getEncounterType().getUuid(), is(MchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE));
+		Assert.assertThat(encounter.getEncounterType().getUuid(), is(EhrMchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE));
 		Assert.assertNotNull(drugOrder.getOpdDrugOrderId());
 		Assert.assertThat(drugOrder.getEncounter(), equalTo(encounter));
 		Assert.assertNotNull(testOrder.getOpdOrderId());

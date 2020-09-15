@@ -6,7 +6,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
@@ -70,9 +70,9 @@ public class AntenatalTriageFragmentController {
 		
 		Patient patient = Context.getPatientService().getPatient(Integer.parseInt(config.get("patientId").toString()));
 		model.addAttribute("patientProfile",
-		    PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+		    PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.ANC_PROGRAM));
 		model.addAttribute("patientHistoricalProfile",
-		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, EhrMchMetadata._MchProgram.ANC_PROGRAM));
 		model.addAttribute("internalReferrals",
 		    SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id"));
 		model.addAttribute("queueId", config.get("queueId"));
@@ -82,7 +82,7 @@ public class AntenatalTriageFragmentController {
 	public int getLastANCVisitNumber(Patient patient) {
 		List<Obs> ancVisitObs = new ArrayList<Obs>();
 		List<PatientProgram> patientPrograms = Context.getProgramWorkflowService().getPatientPrograms(patient,
-		    Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.ANC_PROGRAM), null, null, null,
+		    Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.ANC_PROGRAM), null, null, null,
 		    null, false);
 		PatientProgram currentProgram = null;
 		for (PatientProgram patientProgram : patientPrograms) {
@@ -94,7 +94,7 @@ public class AntenatalTriageFragmentController {
 		if (currentProgram != null) {
 			Date dateEnrolled = currentProgram.getDateEnrolled();
 			List<Concept> questions = new ArrayList<Concept>();
-			questions.add(Context.getConceptService().getConceptByUuid(MchMetadata._MchProgram.ANTENATAL_VISIT_NUMBER));
+			questions.add(Context.getConceptService().getConceptByUuid(EhrMchMetadata._MchProgram.ANTENATAL_VISIT_NUMBER));
 			ancVisitObs = Context.getObsService().getObservations(Arrays.asList((Person) patient), null, questions, null,
 			    null, null, Arrays.asList("obsDatetime"), 1, null, dateEnrolled, null, false);
 		}
@@ -119,12 +119,12 @@ public class AntenatalTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = MchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
 			} else {
-				visitTypeId = MchMetadata._MchProgram.RETURN_ANC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata._MchProgram.RETURN_ANC_CLINIC_VISIT;
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
+			    EhrMchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
 			
 			if (request.getParameter("send_for_examination") != null) {
 				String visitStatus = queue.getVisitStatus();

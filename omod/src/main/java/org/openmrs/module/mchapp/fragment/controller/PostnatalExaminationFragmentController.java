@@ -10,7 +10,7 @@ import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
@@ -48,9 +48,9 @@ public class PostnatalExaminationFragmentController {
 		model.addAttribute("familyPlanningOptions", familyPlanningOptions);
 		model.addAttribute("patient", patient);
 		model.addAttribute("patientProfile",
-		    PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.PNC_PROGRAM));
+		    PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.PNC_PROGRAM));
 		model.addAttribute("patientHistoricalProfile",
-		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, MchMetadata._MchProgram.PNC_PROGRAM));
+		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, EhrMchMetadata._MchProgram.PNC_PROGRAM));
 		model.addAttribute("internalReferrals",
 		    SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
 		model.addAttribute("externalReferrals",
@@ -71,7 +71,7 @@ public class PostnatalExaminationFragmentController {
 		try {
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, location);
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.PNC_ENCOUNTER_TYPE, session.getSessionLocation());
+			    EhrMchMetadata._MchEncounterType.PNC_ENCOUNTER_TYPE, session.getSessionLocation());
 			QueueLogs.logOpdPatient(patientQueue, encounter);
 			InternalReferral internalReferral = new InternalReferral();
 			String refferedRoomUuid = request.getParameter("internalRefferal");
@@ -83,7 +83,7 @@ public class PostnatalExaminationFragmentController {
 			if (StringUtils.isNotEmpty(sendToFp)) {
 				if (sendToFp.equals("on")) {
 					internalReferral.sendToRefferedRoom(patient,
-					    MchMetadata.MchAppConstants.FAMILY_PLANNING_CLINIC_CONCEPT_UUID);
+					    EhrMchMetadata.MchAppConstants.FAMILY_PLANNING_CLINIC_CONCEPT_UUID);
 				}
 			}
 			return SimpleObject.create("status", "success", "message", "Triage information has been saved.");

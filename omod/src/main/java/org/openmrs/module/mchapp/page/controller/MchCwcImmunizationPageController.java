@@ -7,7 +7,7 @@ import org.openmrs.Program;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.model.PatientSearch;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.ListItem;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.ui.framework.UiUtils;
@@ -49,16 +49,16 @@ public class MchCwcImmunizationPageController {
 		if (enrolledInANC) {
 			model.addAttribute("title", "ANC Clinic");
 			minEnrollmentDate.add(Calendar.MONTH, -MAX_ANC_PNC_DURATION);
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.ANC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.ANC_PROGRAM);
 			possibleProgramOutcomes = mchService.getPossibleOutcomes(program.getProgramId());
 		} else if (enrolledInPNC) {
 			model.addAttribute("title", "PNC Clinic");
 			minEnrollmentDate.add(Calendar.MONTH, -MAX_ANC_PNC_DURATION);
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.PNC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.PNC_PROGRAM);
 			possibleProgramOutcomes = mchService.getPossibleOutcomes(program.getProgramId());
 		} else if (enrolledInCWC) {
 			model.addAttribute("title", "CWC Immunization");
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.CWC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.CWC_PROGRAM);
 			minEnrollmentDate.add(Calendar.YEAR, -MAX_CWC_DURATION);
 			possibleProgramOutcomes = mchService.getPossibleOutcomes(program.getProgramId());
 			cwcFollowUps = Context.getConceptService().getConceptByName("CWC FOLLOW UP").getAnswers();

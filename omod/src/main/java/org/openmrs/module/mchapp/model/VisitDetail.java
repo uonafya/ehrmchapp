@@ -6,7 +6,7 @@ import org.openmrs.Encounter;
 import org.openmrs.Obs;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.util.PatientDashboardConstants;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -396,60 +396,60 @@ public class VisitDetail {
 		    PatientDashboardConstants.PROPERTY_PHYSICAL_EXAMINATION);
 		
 		String cwcFollowUpConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_FOLLOW_UP).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_FOLLOW_UP).getDisplayString();
 		String cwcBreastFeedingInfectedConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_BREASTFEEDING_FOR_INFECTED).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_BREASTFEEDING_FOR_INFECTED).getDisplayString();
 		String cwcBreastFeedingExclussiveConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_BREASTFEEDING_EXCLUSSIVE).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_BREASTFEEDING_EXCLUSSIVE).getDisplayString();
 		
 		String pncCervicalScreeningMethodConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_CERVICAL_SCREENING_METHOD).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_CERVICAL_SCREENING_METHOD).getDisplayString();
 		String pncCervicalScreeningResultConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_CERVICAL_SCREENING_RESULT).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_CERVICAL_SCREENING_RESULT).getDisplayString();
 		
-		String cwcLLITNConceptName = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppConstants.CWC_LLITN)
+		String cwcLLITNConceptName = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_LLITN)
 		        .getDisplayString();
 		String cwcDewormedConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_DEWORMED).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_DEWORMED).getDisplayString();
 		String cwcVitaminASupplementationConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_VITAMIN_A_SUPPLEMENTATION).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_VITAMIN_A_SUPPLEMENTATION).getDisplayString();
 		String cwcSupplementedWithMNPConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.CWC_SUPPLEMENTED_WITH_MNP).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.CWC_SUPPLEMENTED_WITH_MNP).getDisplayString();
 		
 		String hivPriorStatusConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.MCH_HIV_PRIOR_STATUS).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.MCH_HIV_PRIOR_STATUS).getDisplayString();
 		String hivPartnerStatusConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.MCH_HIV_PARTNER_STATUS).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.MCH_HIV_PARTNER_STATUS).getDisplayString();
 		String hivPartnerTestedConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.MCH_HIV_PARTNER_TESTED).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.MCH_HIV_PARTNER_TESTED).getDisplayString();
 		String hivCoupleCouncelledConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.MCH_HIV_PARTNER_TESTED).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.MCH_HIV_PARTNER_TESTED).getDisplayString();
 		
 		String pncExcerciseConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_EXCERCISE).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_EXCERCISE).getDisplayString();
 		String pncMultivitaminConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_MULTIVITAMIN).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_MULTIVITAMIN).getDisplayString();
 		String pncVitaminAConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_VITAMIN_A).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_VITAMIN_A).getDisplayString();
 		String pncHaematinicsConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_HAEMATINICS).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_HAEMATINICS).getDisplayString();
 		String pncFamilyPlanningConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.PNC_FAMILY_PLANNING).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.PNC_FAMILY_PLANNING).getDisplayString();
 		
 		String ancCouncellingConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_FEEDING_COUNCELLING).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_FEEDING_COUNCELLING).getDisplayString();
 		String ancExlussiveBFConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_FEEDING_EXCLUSSIVE).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_FEEDING_EXCLUSSIVE).getDisplayString();
 		String ancForInfectedConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_FEEDING_INFECTED).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_FEEDING_INFECTED).getDisplayString();
 		String ancDecisionOnBFConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_FEEDING_DECISION).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_FEEDING_DECISION).getDisplayString();
 		
 		String ancDewormingConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_DEWORMING).getDisplayString();
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_DEWORMING).getDisplayString();
 		String ancExcerciseConceptName = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppConstants.ANC_EXCERCISE).getDisplayString();
-		String ancLLITNConceptName = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppConstants.ANC_LLITN)
+		        .getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_EXCERCISE).getDisplayString();
+		String ancLLITNConceptName = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppConstants.ANC_LLITN)
 		        .getDisplayString();
 		
 		//Concepts
@@ -560,8 +560,8 @@ public class VisitDetail {
 			if (obs.getConcept().equals(procedureConcept)) {
 				procedureList.append(obs.getValueCoded().getDisplayString()).append("<br/>");
 			}
-			if (obs.getConcept().getConceptClass().getUuid().equals(MchMetadata.MchAppConstants.CWC_EXAMINATION_CLASS)
-			        && obs.getConcept().getDatatype().getUuid().equals(MchMetadata.MchAppConstants.CWC_EXAMINATION_DATATYPE)) {
+			if (obs.getConcept().getConceptClass().getUuid().equals(EhrMchMetadata.MchAppConstants.CWC_EXAMINATION_CLASS)
+			        && obs.getConcept().getDatatype().getUuid().equals(EhrMchMetadata.MchAppConstants.CWC_EXAMINATION_DATATYPE)) {
 				String testName = obs.getConcept().getDisplayString();
 				String testAnswer = obs.getValueCoded().getDisplayString();
 				examination.append(testName + " : " + testAnswer).append("<br/>");
