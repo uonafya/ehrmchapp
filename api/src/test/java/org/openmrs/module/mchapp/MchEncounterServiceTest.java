@@ -22,12 +22,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MchEncounterServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-	MchMetadata mchMetadata;
+	EhrMchMetadata ehrMchMetadata;
 	
 	@Test
 	public void getConditions_shouldReturnMostRecentConditions() throws Exception {
 		executeDataSet("mch-programs.xml");
-		mchMetadata.install();
+		ehrMchMetadata.install();
 		Patient patient = Context.getPatientService().getPatient(2);
 		Calendar date = Calendar.getInstance();
 		date.add(Calendar.MONTH, -1);

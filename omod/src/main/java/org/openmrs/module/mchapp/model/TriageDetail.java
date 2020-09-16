@@ -4,7 +4,7 @@ import org.openmrs.Concept;
 import org.openmrs.Encounter;
 import org.openmrs.Obs;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 
 public class TriageDetail {
 	
@@ -99,19 +99,21 @@ public class TriageDetail {
 	}
 	
 	public static TriageDetail create(Encounter encounter) {
-		Concept pulseRateConcept = Context.getConceptService()
-		        .getConceptByUuid(MchMetadata.MchAppTriageConstants.PULSE_RATE);
-		Concept systolicConcept = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppTriageConstants.SYSTOLIC);
-		Concept daistolicConcept = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppTriageConstants.DAISTOLIC);
+		Concept pulseRateConcept = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata.MchAppTriageConstants.PULSE_RATE);
+		Concept systolicConcept = Context.getConceptService()
+		        .getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.SYSTOLIC);
+		Concept daistolicConcept = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata.MchAppTriageConstants.DAISTOLIC);
 		Concept temperatureConcept = Context.getConceptService().getConceptByUuid(
-		    MchMetadata.MchAppTriageConstants.TEMPERATURE);
-		Concept weightConcept = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppTriageConstants.WEIGHT);
-		Concept heightConcept = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppTriageConstants.HEIGHT);
-		Concept muacConcept = Context.getConceptService().getConceptByUuid(MchMetadata.MchAppTriageConstants.MUAC);
+		    EhrMchMetadata.MchAppTriageConstants.TEMPERATURE);
+		Concept weightConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.WEIGHT);
+		Concept heightConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.HEIGHT);
+		Concept muacConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.MUAC);
 		Concept growthStatusConcept = Context.getConceptService().getConceptByUuid(
-		    MchMetadata.MchAppTriageConstants.GROWTH_STATUS);
+		    EhrMchMetadata.MchAppTriageConstants.GROWTH_STATUS);
 		Concept weightCategoryConcept = Context.getConceptService().getConceptByUuid(
-		    MchMetadata.MchAppTriageConstants.WEIGHT_CATEGORY);
+		    EhrMchMetadata.MchAppTriageConstants.WEIGHT_CATEGORY);
 		
 		StringBuffer pulseRate = new StringBuffer();
 		StringBuffer systolic = new StringBuffer();

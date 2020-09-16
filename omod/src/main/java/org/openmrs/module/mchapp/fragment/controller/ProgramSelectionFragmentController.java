@@ -1,12 +1,9 @@
 package org.openmrs.module.mchapp.fragment.controller;
 
-import org.openmrs.Concept;
-import org.openmrs.ConceptAnswer;
-import org.openmrs.Encounter;
-import org.openmrs.Patient;
+import org.openmrs.*;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.ui.framework.SimpleObject;
@@ -31,7 +28,7 @@ public class ProgramSelectionFragmentController {
 	public void controller(FragmentConfiguration config, FragmentModel model) {
 		config.require("queueId");
 		
-		Concept modeOfDelivery = Context.getConceptService().getConceptByUuid(MchMetadata._MchProgram.PNC_DELIVERY_MODES);
+		Concept modeOfDelivery = Context.getConceptService().getConceptByUuid(EhrMchMetadata._MchProgram.PNC_DELIVERY_MODES);
 		List<SimpleObject> modesOfDelivery = new ArrayList<SimpleObject>();
 		for (ConceptAnswer answer : modeOfDelivery.getAnswers()) {
 			modesOfDelivery.add(SimpleObject.create("uuid", answer.getAnswerConcept().getUuid(), "label", answer
@@ -52,9 +49,12 @@ public class ProgramSelectionFragmentController {
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, null);
 			dateEnrolled = dateFormatter.parse(dateEnrolledAsString);
 			mchService.enrollInANC(patient, dateEnrolled);
-			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(),
-			    MchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT);
+			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(
+			    form,
+			    EhrMchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE,
+			    session.getSessionLocation(),
+			    Context.getVisitService().getVisitTypeByUuid(EhrMchMetadata._VistTypes.INITIAL_MCH_CLINIC_VISIT)
+			            .getVisitTypeId());
 			
 			return SimpleObject.create("status", "success", "message", patient + " has been enrolled into ANC");
 		}
@@ -75,8 +75,8 @@ public class ProgramSelectionFragmentController {
 			dateEnrolled = dateFormatter.parse(dateEnrolledAsString);
 			mchService.enrollInPNC(patient, dateEnrolled);
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(),
-			    MchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT);
+			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(),
+			    EhrMchMetadata.getInitialMCHClinicVisitTypeId());
 			
 			return SimpleObject.create("status", "success", "message", patient + " has been enrolled into PNC");
 		}

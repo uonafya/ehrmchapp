@@ -7,7 +7,7 @@ import org.openmrs.Program;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.model.PatientSearch;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.ui.framework.page.PageModel;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,14 +61,14 @@ public class TriagePageController {
 		if (enrolledInANC) {
 			model.addAttribute("title", "ANC Triage");
 			minEnrollmentDate.add(Calendar.MONTH, -MAX_ANC_PNC_DURATION);
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.ANC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.ANC_PROGRAM);
 		} else if (enrolledInPNC) {
 			model.addAttribute("title", "PNC Triage");
 			minEnrollmentDate.add(Calendar.MONTH, -MAX_ANC_PNC_DURATION);
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.PNC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.PNC_PROGRAM);
 		} else if (enrolledInCWC) {
 			model.addAttribute("title", "CWC Triage");
-			program = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.CWC_PROGRAM);
+			program = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.CWC_PROGRAM);
 			minEnrollmentDate.add(Calendar.YEAR, -MAX_CWC_DURATION);
 		} else {
 			model.addAttribute("title", "Triage");

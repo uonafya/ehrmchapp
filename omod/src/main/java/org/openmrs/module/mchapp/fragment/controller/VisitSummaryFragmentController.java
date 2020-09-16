@@ -4,7 +4,7 @@ import org.openmrs.*;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.PatientDashboardService;
 import org.openmrs.module.hospitalcore.model.OpdDrugOrder;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.model.VisitDetail;
 import org.openmrs.module.mchapp.model.VisitSummary;
@@ -31,13 +31,13 @@ public class VisitSummaryFragmentController {
 		
 		if (mchService.enrolledInANC(patient)) {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE);
 		} else if (mchService.enrolledInPNC(patient)) {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.PNC_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.PNC_ENCOUNTER_TYPE);
 		} else {
 			mchEncType = Context.getEncounterService().getEncounterTypeByUuid(
-			    MchMetadata._MchEncounterType.CWC_ENCOUNTER_TYPE);
+			    EhrMchMetadata._MchEncounterType.CWC_ENCOUNTER_TYPE);
 		}
 		
 		List<Encounter> encounters = dashboardService.getEncounter(patient, null, mchEncType, null);

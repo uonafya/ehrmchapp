@@ -11,7 +11,7 @@ import org.openmrs.module.hospitalcore.PatientDashboardService;
 import org.openmrs.module.hospitalcore.model.OpdDrugOrder;
 import org.openmrs.module.hospitalcore.model.OpdTestOrder;
 import org.openmrs.module.mchapp.FreeInvestigationProcessor;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.MchProfileConcepts;
 import org.openmrs.module.mchapp.VisitListItem;
 import org.openmrs.module.mchapp.api.ListItem;
@@ -68,12 +68,12 @@ public class MchServiceImpl implements MchService {
 	@Override
 	public boolean enrolledInANC(Patient patient) {
 		return enrolledInProgram(patient,
-		    Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.ANC_PROGRAM));
+		    Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.ANC_PROGRAM));
 	}
 	
 	@Override
 	public SimpleObject enrollInANC(Patient patient, Date dateEnrolled) {
-		Program ancProgram = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.ANC_PROGRAM);
+		Program ancProgram = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.ANC_PROGRAM);
 		if (!enrolledInANC(patient)) {
 			PatientProgram patientProgram = new PatientProgram();
 			patientProgram.setPatient(patient);
@@ -93,12 +93,12 @@ public class MchServiceImpl implements MchService {
 	@Override
 	public boolean enrolledInPNC(Patient patient) {
 		return enrolledInProgram(patient,
-		    Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.PNC_PROGRAM));
+		    Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.PNC_PROGRAM));
 	}
 	
 	@Override
 	public SimpleObject enrollInPNC(Patient patient, Date dateEnrolled) {
-		Program pncProgram = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.PNC_PROGRAM);
+		Program pncProgram = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.PNC_PROGRAM);
 		if (!enrolledInPNC(patient)) {
 			PatientProgram patientProgram = new PatientProgram();
 			patientProgram.setPatient(patient);
@@ -118,7 +118,7 @@ public class MchServiceImpl implements MchService {
 	@Override
 	public boolean enrolledInCWC(Patient patient) {
 		return enrolledInProgram(patient,
-		    Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.CWC_PROGRAM));
+		    Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.CWC_PROGRAM));
 	}
 	
 	@Override
@@ -129,7 +129,7 @@ public class MchServiceImpl implements MchService {
 			}
 		}
 		
-		Program cwcProgram = Context.getProgramWorkflowService().getProgramByUuid(MchMetadata._MchProgram.CWC_PROGRAM);
+		Program cwcProgram = Context.getProgramWorkflowService().getProgramByUuid(EhrMchMetadata._MchProgram.CWC_PROGRAM);
 		if (!enrolledInCWC(patient)) {
 			PatientProgram patientProgram = new PatientProgram();
 			patientProgram.setPatient(patient);
@@ -345,12 +345,12 @@ public class MchServiceImpl implements MchService {
 	
 	private List<Concept> getProfileConcepts(PatientProgram currentProgram) {
 		List<Concept> questions = new ArrayList<Concept>();
-		if (StringUtils.equalsIgnoreCase(currentProgram.getProgram().getUuid(), MchMetadata._MchProgram.ANC_PROGRAM)) {
+		if (StringUtils.equalsIgnoreCase(currentProgram.getProgram().getUuid(), EhrMchMetadata._MchProgram.ANC_PROGRAM)) {
 			for (String conceptUuid : MchProfileConcepts.ANC_PROFILE_CONCEPTS) {
 				questions.add(Context.getConceptService().getConceptByUuid(conceptUuid));
 			}
 		}
-		if (StringUtils.equalsIgnoreCase(currentProgram.getProgram().getUuid(), MchMetadata._MchProgram.PNC_PROGRAM)) {
+		if (StringUtils.equalsIgnoreCase(currentProgram.getProgram().getUuid(), EhrMchMetadata._MchProgram.PNC_PROGRAM)) {
 			for (String conceptUuid : MchProfileConcepts.PNC_PROFILE_CONCEPTS) {
 				questions.add(Context.getConceptService().getConceptByUuid(conceptUuid));
 			}

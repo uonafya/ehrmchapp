@@ -7,7 +7,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.api.ListItem;
 import org.openmrs.module.mchapp.api.MchService;
@@ -90,7 +90,7 @@ public class CwcTriageFragmentController {
 		model.addAttribute("internalReferralSources",
 		    SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id"));
 		
-		Concept growthCategory = Context.getConceptService().getConceptByUuid(MchMetadata._MchProgram.MCH_GROWTH_MONITOR);
+		Concept growthCategory = Context.getConceptService().getConceptByUuid(EhrMchMetadata._MchProgram.MCH_GROWTH_MONITOR);
 		List<SimpleObject> growthCategories = new ArrayList<SimpleObject>();
 		
 		if (growthCategory != null) {
@@ -102,7 +102,8 @@ public class CwcTriageFragmentController {
 		}
 		model.addAttribute("growthCategories", growthCategories);
 		
-		Concept weightCategory = Context.getConceptService().getConceptByUuid(MchMetadata._MchProgram.MCH_WEIGHT_CATEGORIES);
+		Concept weightCategory = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata._MchProgram.MCH_WEIGHT_CATEGORIES);
 		List<SimpleObject> weightCategories = new ArrayList<SimpleObject>();
 		if (weightCategory != null) {
 			
@@ -128,12 +129,12 @@ public class CwcTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = MchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
-				visitTypeId = MchMetadata._MchProgram.RETURN_CWC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata._MchProgram.RETURN_CWC_CLINIC_VISIT;
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
+			    EhrMchMetadata._MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
 			if (request.getParameter("send_for_examination") != null) {
 				String visitStatus = queue.getVisitStatus();
 				SendForExaminationParser.parse("send_for_examination", request.getParameterValues("send_for_examination"),

@@ -11,7 +11,7 @@ import org.openmrs.module.hospitalcore.model.InventoryDrug;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
@@ -48,13 +48,13 @@ public class ChildWelfareExaminationFragmentController {
 		String queueId = config.get("queueId").toString();
 		String patientID = config.get("patientId").toString();
 		Patient patient = Context.getPatientService().getPatient(Integer.parseInt(patientID));
-		PersonAttribute pa = patient.getAttribute(MchMetadata.MchAppConstants.CWC_CHILD_COMPLETED_IMMUNIZATION);
+		PersonAttribute pa = patient.getAttribute(EhrMchMetadata.MchAppConstants.CWC_CHILD_COMPLETED_IMMUNIZATION);
 		
 		model.addAttribute("patient", patient);
 		model.addAttribute("patientProfile",
-		    PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.CWC_PROGRAM));
+		    PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.CWC_PROGRAM));
 		model.addAttribute("patientHistoricalProfile",
-		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, MchMetadata._MchProgram.CWC_PROGRAM));
+		    PatientProfileGenerator.generateHistoricalPatientProfile(patient, EhrMchMetadata._MchProgram.CWC_PROGRAM));
 		model.addAttribute("internalReferrals",
 		    SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
 		model.addAttribute("externalReferrals",
@@ -82,7 +82,7 @@ public class ChildWelfareExaminationFragmentController {
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, location);
 			InternalReferral internalReferral = new InternalReferral();
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.CWC_ENCOUNTER_TYPE, session.getSessionLocation());
+			    EhrMchMetadata._MchEncounterType.CWC_ENCOUNTER_TYPE, session.getSessionLocation());
 			String refferedRoomUuid = request.getParameter("internalRefferal");
 			if (refferedRoomUuid != "" && refferedRoomUuid != null && !refferedRoomUuid.equals(0)
 			        && !refferedRoomUuid.equals("0")) {
@@ -100,7 +100,7 @@ public class ChildWelfareExaminationFragmentController {
 			
 			System.out.println("CHECKED VALUE:::::" + request.getParameter("child_fully_immunized"));
 			
-			PersonAttribute pa = patient.getAttribute(MchMetadata.MchAppConstants.CWC_CHILD_COMPLETED_IMMUNIZATION);
+			PersonAttribute pa = patient.getAttribute(EhrMchMetadata.MchAppConstants.CWC_CHILD_COMPLETED_IMMUNIZATION);
 			if (pa == null) {
 				pa = new PersonAttribute();
 				pa.setPerson(patient);

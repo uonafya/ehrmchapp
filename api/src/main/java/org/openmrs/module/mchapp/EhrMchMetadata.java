@@ -1,13 +1,16 @@
 package org.openmrs.module.mchapp;
 
 import org.openmrs.Program;
+import org.openmrs.VisitType;
+import org.openmrs.api.VisitService;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
 import org.springframework.stereotype.Component;
 
 import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.*;
 
 @Component
-public class MchMetadata extends AbstractMetadataBundle {
+public class EhrMchMetadata extends AbstractMetadataBundle {
 	
 	public static final class _AncConstantConceptQuestions {
 		
@@ -16,6 +19,19 @@ public class MchMetadata extends AbstractMetadataBundle {
 		public static final String GRAVIDA = "5624AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String LAST_MENSTRUAL_PERIOD = "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+	}
+	
+	public static final class _VistTypes {
+		
+		public static final String FACILITY_VISIT = "1d68d240-f756-11ea-9cea-3befc33f1528";
+		
+		public static final String INITIAL_MCH_CLINIC_VISIT = "6abfb77e-f757-11ea-8407-3324a437e44c";
+		
+		public static final String RETURN_ANC_CLINIC_VISIT = "ddd68ada-f757-11ea-95c9-476e3c55d050";
+		
+		public static final String RETURN_PNC_CLINIC_VISIT = "1a341498-f758-11ea-bb87-f307ba6e4e97";
+		
+		public static final String RETURN_CWC_CLINIC_VISIT = "50a3a548-f758-11ea-93dd-ef5edbbc39fb";
 	}
 	
 	public static final class MchAppConstants {
@@ -130,7 +146,7 @@ public class MchMetadata extends AbstractMetadataBundle {
 		
 		public static final String ANTENATAL_VISIT_NUMBER = "1425AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final Integer INITIAL_MCH_CLINIC_VISIT = 2;
+		//        public static final Integer INITIAL_MCH_CLINIC_VISIT = 2;
 		
 		public static final Integer RETURN_ANC_CLINIC_VISIT = 3;
 		
@@ -151,6 +167,10 @@ public class MchMetadata extends AbstractMetadataBundle {
 		public static final String MCH_GROWTH_MONITOR = "562a6c3e-519b-4a50-81be-76ca67b5d5ec";
 	}
 	
+	public static int getInitialMCHClinicVisitTypeId() {
+		return Context.getVisitService().getVisitTypeByUuid(_VistTypes.INITIAL_MCH_CLINIC_VISIT).getVisitTypeId();
+	}
+	
 	@Override
 	public void install() throws Exception {
 		install(encounterType("ANCENCOUNTER", "ANC encounter type", _MchEncounterType.ANC_ENCOUNTER_TYPE));
@@ -159,6 +179,14 @@ public class MchMetadata extends AbstractMetadataBundle {
 		install(encounterType("PNCTRIAGEENCOUNTER", "PNC triage encounter type", _MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE));
 		install(encounterType("CWCENCOUNTER", "CWC encounter type", _MchEncounterType.CWC_ENCOUNTER_TYPE));
 		install(encounterType("CWCTRIAGEENCOUNTER", "CWC triage encounter type", _MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE));
+		install(encounterType("FACILITYVISIT",
+		    "Patient visits the clinic/hospital (as opposed to a home visit, or telephone contact)",
+		    _VistTypes.FACILITY_VISIT));
+		install(encounterType("INITIALMCHCLINICVISIT", "Initial Visit to the MCH Clinic",
+		    _VistTypes.INITIAL_MCH_CLINIC_VISIT));
+		install(encounterType("RETURNANCCLINICVISIT", "Return ANC Clinic Visit", _VistTypes.RETURN_ANC_CLINIC_VISIT));
+		install(encounterType("RETURNPNCCLINICVISIT", "Return PNC Clinic Visit", _VistTypes.RETURN_PNC_CLINIC_VISIT));
+		install(encounterType("RETURNCWCCLINICVISIT", "Return CWC Clinic Visit", _VistTypes.RETURN_CWC_CLINIC_VISIT));
 		
 		if (possible(Program.class, _MchProgram.ANC_PROGRAM) == null) {
 			install(program("Antenatal Care Program", "ANC Program", _MchProgram.ANC_PROGRAM_CONCEPT,

@@ -13,7 +13,7 @@ import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.ehrinventory.model.ToxoidModel;
 import org.openmrs.module.ehrinventory.util.DateUtils;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.MchStores;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.api.MchEncounterService;
@@ -50,7 +50,7 @@ public class AntenatalExaminationFragmentController {
 		Patient patient = Context.getPatientService().getPatient(Integer.parseInt(config.get("patientId").toString()));
 		model.addAttribute("patient", patient);
 		model.addAttribute("patientProfile",
-		    PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+		    PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.ANC_PROGRAM));
 		model.addAttribute("internalReferrals",
 		    SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
 		model.addAttribute("externalReferrals",
@@ -74,7 +74,7 @@ public class AntenatalExaminationFragmentController {
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, location);
 			InternalReferral internalReferral = new InternalReferral();
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE, session.getSessionLocation());
+			    EhrMchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE, session.getSessionLocation());
 			String refferedRoomUuid = request.getParameter("internalRefferal");
 			if (refferedRoomUuid != "" && refferedRoomUuid != null && !refferedRoomUuid.equals(0)
 			        && !refferedRoomUuid.equals("0")) {
@@ -118,7 +118,7 @@ public class AntenatalExaminationFragmentController {
 		
 		Encounter encounter = new Encounter();
 		EncounterType mchEncounterType = Context.getEncounterService().getEncounterTypeByUuid(
-		    MchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE);
+		    EhrMchMetadata._MchEncounterType.ANC_ENCOUNTER_TYPE);
 		
 		encounter.setPatient(patient);
 		encounter.setLocation(session.getSessionLocation());

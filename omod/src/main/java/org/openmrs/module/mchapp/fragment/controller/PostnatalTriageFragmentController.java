@@ -6,7 +6,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
-import org.openmrs.module.mchapp.MchMetadata;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
@@ -67,7 +67,7 @@ public class PostnatalTriageFragmentController {
 		
 		Patient patient = Context.getPatientService().getPatient(Integer.parseInt(config.get("patientId").toString()));
 		
-		Concept modeOfDelivery = Context.getConceptService().getConceptByUuid(MchMetadata._MchProgram.PNC_DELIVERY_MODES);
+		Concept modeOfDelivery = Context.getConceptService().getConceptByUuid(EhrMchMetadata._MchProgram.PNC_DELIVERY_MODES);
 		List<SimpleObject> modesOfDelivery = new ArrayList<SimpleObject>();
 		for (ConceptAnswer answer : modeOfDelivery.getAnswers()) {
 			modesOfDelivery.add(SimpleObject.create("uuid", answer.getAnswerConcept().getUuid(), "label", answer
@@ -76,7 +76,7 @@ public class PostnatalTriageFragmentController {
 		
 		model.addAttribute("patient", patient);
 		model.addAttribute("patientProfile",
-		    PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.PNC_PROGRAM));
+		    PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.PNC_PROGRAM));
 		model.addAttribute("queueId", config.get("queueId"));
 		model.addAttribute("deliveryMode", modesOfDelivery);
 		
@@ -94,12 +94,12 @@ public class PostnatalTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = MchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
-				visitTypeId = MchMetadata._MchProgram.RETURN_PNC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata._MchProgram.RETURN_PNC_CLINIC_VISIT;
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    MchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
+			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
 			if (request.getParameter("send_for_examination") != null) {
 				String visitStatus = queue.getVisitStatus();
 				SendForExaminationParser.parse("send_for_examination", request.getParameterValues("send_for_examination"),
