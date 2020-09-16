@@ -191,6 +191,7 @@
     <changeSet id="mchapp:2020-09-16-12:53" author="injiri">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
+            <sqlCheck expectedResult="0"> SELECT COUNT(*) FROM person_attribute_type WHERE  person_attribute_type_id=52</sqlCheck>
         </preConditions>
         <comment>Create a new Person Attribute that will store the value of whether a child has been fully Immunized.
             Remove faulty entries in previous immunization_store_patient_transaction table.
