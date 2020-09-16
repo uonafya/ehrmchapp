@@ -119,7 +119,7 @@ public class AntenatalTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = EhrMchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
 				visitTypeId = EhrMchMetadata._MchProgram.RETURN_ANC_CLINIC_VISIT;
 			}

@@ -99,10 +99,12 @@ public class TriageDetail {
 	}
 	
 	public static TriageDetail create(Encounter encounter) {
-		Concept pulseRateConcept = Context.getConceptService()
-		        .getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.PULSE_RATE);
-		Concept systolicConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.SYSTOLIC);
-		Concept daistolicConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.DAISTOLIC);
+		Concept pulseRateConcept = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata.MchAppTriageConstants.PULSE_RATE);
+		Concept systolicConcept = Context.getConceptService()
+		        .getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.SYSTOLIC);
+		Concept daistolicConcept = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata.MchAppTriageConstants.DAISTOLIC);
 		Concept temperatureConcept = Context.getConceptService().getConceptByUuid(
 		    EhrMchMetadata.MchAppTriageConstants.TEMPERATURE);
 		Concept weightConcept = Context.getConceptService().getConceptByUuid(EhrMchMetadata.MchAppTriageConstants.WEIGHT);

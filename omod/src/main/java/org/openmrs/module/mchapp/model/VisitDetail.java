@@ -561,7 +561,8 @@ public class VisitDetail {
 				procedureList.append(obs.getValueCoded().getDisplayString()).append("<br/>");
 			}
 			if (obs.getConcept().getConceptClass().getUuid().equals(EhrMchMetadata.MchAppConstants.CWC_EXAMINATION_CLASS)
-			        && obs.getConcept().getDatatype().getUuid().equals(EhrMchMetadata.MchAppConstants.CWC_EXAMINATION_DATATYPE)) {
+			        && obs.getConcept().getDatatype().getUuid()
+			                .equals(EhrMchMetadata.MchAppConstants.CWC_EXAMINATION_DATATYPE)) {
 				String testName = obs.getConcept().getDisplayString();
 				String testAnswer = obs.getValueCoded().getDisplayString();
 				examination.append(testName + " : " + testAnswer).append("<br/>");

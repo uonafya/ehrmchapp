@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
+
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <!--
         See http://www.liquibase.org/manual/home#available_database_refactorings
@@ -40,9 +40,11 @@
             UNIQUE KEY `batch_no_UNIQUE` (`batch_no`),
             KEY `fk_immunization_store_drug_person1_idx` (`created_by`),
             KEY `fk_immunization_store_drug_inventory_drug1_idx` (`inventory_drug_id`),
-            CONSTRAINT `fk_immunization_store_drug_inventory_drug1` FOREIGN KEY (`inventory_drug_id`) REFERENCES `inventory_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_drug_person1` FOREIGN KEY (`created_by`) REFERENCES `person` (`person_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-            ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+            CONSTRAINT `fk_immunization_store_drug_inventory_drug1` FOREIGN KEY (`inventory_drug_id`) REFERENCES
+            `inventory_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `fk_immunization_store_drug_person1` FOREIGN KEY (`created_by`) REFERENCES `person` (`person_id`)
+            ON DELETE NO ACTION ON UPDATE NO ACTION
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
 
@@ -70,10 +72,15 @@
             KEY `fk_immunization_store_drug_transaction_detail_person1_idx` (`created_by`),
             KEY `fk_immunization_store_drug_transaction_detail_patient1_idx` (`patient_id`),
             KEY `fk_immunization_store_drug_transaction_detail_immunization__idx1` (`immunization_store_drug_id`),
-            CONSTRAINT `fk_immunization_store_drug_transaction_detail_immunization_st1` FOREIGN KEY (`transaction_type`) REFERENCES `immunization_store_transaction_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_drug_transaction_detail_immunization_st2` FOREIGN KEY (`immunization_store_drug_id`) REFERENCES `immunization_store_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_drug_transaction_detail_patient1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_drug_transaction_detail_person1` FOREIGN KEY (`created_by`) REFERENCES `person` (`person_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+            CONSTRAINT `fk_immunization_store_drug_transaction_detail_immunization_st1` FOREIGN KEY (`transaction_type`)
+            REFERENCES `immunization_store_transaction_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `fk_immunization_store_drug_transaction_detail_immunization_st2` FOREIGN KEY
+            (`immunization_store_drug_id`) REFERENCES `immunization_store_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO
+            ACTION,
+            CONSTRAINT `fk_immunization_store_drug_transaction_detail_patient1` FOREIGN KEY (`patient_id`) REFERENCES
+            `patient` (`patient_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `fk_immunization_store_drug_transaction_detail_person1` FOREIGN KEY (`created_by`) REFERENCES
+            `person` (`person_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
@@ -93,7 +100,8 @@
             `date_modified` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             KEY `fk_immunization_stockout_inventory_drug_idx` (`drug_id`),
-            CONSTRAINT `fk_immunization_stockout_inventory_drug` FOREIGN KEY (`drug_id`) REFERENCES `inventory_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+            CONSTRAINT `fk_immunization_stockout_inventory_drug` FOREIGN KEY (`drug_id`) REFERENCES `inventory_drug`
+            (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
@@ -121,11 +129,14 @@
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
         </preConditions>
-        <comment>Insert Transaction Types defaults to immunization_store_transaction_type </comment>
+        <comment>Insert Transaction Types defaults to immunization_store_transaction_type</comment>
         <sql>
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(1, "Receipts") ON DUPLICATE KEY UPDATE transaction_type="Receipts";
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(2, "Issues") ON DUPLICATE KEY UPDATE transaction_type="Issues";
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(3, "Returns") ON DUPLICATE KEY UPDATE transaction_type="Returns";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(1, "Receipts") ON DUPLICATE KEY
+            UPDATE transaction_type="Receipts";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(2, "Issues") ON DUPLICATE KEY
+            UPDATE transaction_type="Issues";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(3, "Returns") ON DUPLICATE KEY
+            UPDATE transaction_type="Returns";
         </sql>
     </changeSet>
 
@@ -150,10 +161,15 @@
             KEY `fk_immunization_store_patient_transaction_patient1_idx` (`patient_id`),
             KEY `fk_immunization_store_patient_transaction_immunization__idx1` (`immunization_store_drug_id`),
             KEY `fk_immunization_store_patient_transaction_state1_idx` (`immunization_state`),
-            CONSTRAINT `fk_immunization_store_patient_transaction_immunization_st2` FOREIGN KEY (`immunization_store_drug_id`) REFERENCES `immunization_store_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_patient_transaction_patient1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_patient_transaction_person1` FOREIGN KEY (`created_by`) REFERENCES `person` (`person_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-            CONSTRAINT `fk_immunization_store_patient_transaction_state1` FOREIGN KEY (`immunization_state`) REFERENCES `patient_state` (`patient_state_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+            CONSTRAINT `fk_immunization_store_patient_transaction_immunization_st2` FOREIGN KEY
+            (`immunization_store_drug_id`) REFERENCES `immunization_store_drug` (`id`) ON DELETE NO ACTION ON UPDATE NO
+            ACTION,
+            CONSTRAINT `fk_immunization_store_patient_transaction_patient1` FOREIGN KEY (`patient_id`) REFERENCES
+            `patient` (`patient_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `fk_immunization_store_patient_transaction_person1` FOREIGN KEY (`created_by`) REFERENCES
+            `person` (`person_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+            CONSTRAINT `fk_immunization_store_patient_transaction_state1` FOREIGN KEY (`immunization_state`) REFERENCES
+            `patient_state` (`patient_state_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         </sql>
     </changeSet>
@@ -161,24 +177,32 @@
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
         </preConditions>
-        <comment>add Issue to Account and Return to supplier defaults to the table immunization_store_transaction_type</comment>
+        <comment>add Issue to Account and Return to supplier defaults to the table immunization_store_transaction_type
+        </comment>
         <sql>
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(3, "Issue Returns") ON DUPLICATE KEY UPDATE transaction_type="Issue Returns";
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(4, "Issue To Account") ON DUPLICATE KEY UPDATE transaction_type="Issue To Account";
-            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(5, "Return To Supplier") ON DUPLICATE KEY UPDATE transaction_type="Return To Supplier";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(3, "Issue Returns") ON
+            DUPLICATE KEY UPDATE transaction_type="Issue Returns";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(4, "Issue To Account") ON
+            DUPLICATE KEY UPDATE transaction_type="Issue To Account";
+            INSERT INTO immunization_store_transaction_type(id, transaction_type) VALUES(5, "Return To Supplier") ON
+            DUPLICATE KEY UPDATE transaction_type="Return To Supplier";
         </sql>
     </changeSet>
     <changeSet id="mchapp:2020-09-16-12:53" author="injiri">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <dbms type="mysql"/>
         </preConditions>
-        <comment>Create a new Person Attribute that will store the value of whether a child has been fully Immunized. Remove faulty entries in previous immunization_store_patient_transaction table.</comment>
+        <comment>Create a new Person Attribute that will store the value of whether a child has been fully Immunized.
+            Remove faulty entries in previous immunization_store_patient_transaction table.
+        </comment>
         <sql>
             DELETE FROM immunization_store_patient_transaction;
-            INSERT INTO person_attribute_type (person_attribute_type_id,`name`,`description`,`format`,creator,date_created,`uuid`,sort_weight) VALUES (52,'Child Fully Immunized','Stored property whether a child has completed immunization','java.lang.Boolean',1,'2017-02-27','fd00a449-a5bc-a32f-bdd2-377ec1887c5c',52);
+            INSERT INTO person_attribute_type
+            (person_attribute_type_id,`name`,`description`,`format`,creator,date_created,`uuid`,sort_weight) VALUES
+            (52,'Child Fully Immunized','Stored property whether a child has completed
+            immunization','java.lang.Boolean',1,'2017-02-27','fd00a449-a5bc-a32f-bdd2-377ec1887c5c',52);
         </sql>
     </changeSet>
-
 
 
 </databaseChangeLog>

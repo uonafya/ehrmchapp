@@ -102,7 +102,8 @@ public class CwcTriageFragmentController {
 		}
 		model.addAttribute("growthCategories", growthCategories);
 		
-		Concept weightCategory = Context.getConceptService().getConceptByUuid(EhrMchMetadata._MchProgram.MCH_WEIGHT_CATEGORIES);
+		Concept weightCategory = Context.getConceptService().getConceptByUuid(
+		    EhrMchMetadata._MchProgram.MCH_WEIGHT_CATEGORIES);
 		List<SimpleObject> weightCategories = new ArrayList<SimpleObject>();
 		if (weightCategory != null) {
 			
@@ -128,7 +129,7 @@ public class CwcTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = EhrMchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
 				visitTypeId = EhrMchMetadata._MchProgram.RETURN_CWC_CLINIC_VISIT;
 			}

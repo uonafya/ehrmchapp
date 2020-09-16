@@ -94,7 +94,7 @@ public class PostnatalTriageFragmentController {
 			    true, patientEnrollmentDate);
 			int visitTypeId;
 			if (previousVisitsByPatient.size() == 0) {
-				visitTypeId = EhrMchMetadata._MchProgram.INITIAL_MCH_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
 				visitTypeId = EhrMchMetadata._MchProgram.RETURN_PNC_CLINIC_VISIT;
 			}
