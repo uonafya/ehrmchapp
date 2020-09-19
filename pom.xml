@@ -30,6 +30,7 @@
         <connection>scm:git:git@github.com:openmrs/openmrs-module-mchapp.git</connection>
         <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-mchapp.git</developerConnection>
         <url>https://github.com/openmrs/openmrs-module-mchapp/</url>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
@@ -58,18 +59,6 @@
                 <groupId>org.openmrs.module</groupId>
                 <artifactId>uiframework-api</artifactId>
                 <version>3.3.1</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.openmrs.module</groupId>
-                <artifactId>metadatadeploy-api</artifactId>
-                <version>1.7</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.openmrs.module</groupId>
-                <artifactId>metadatasharing-api</artifactId>
-                <version>1.1.8</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

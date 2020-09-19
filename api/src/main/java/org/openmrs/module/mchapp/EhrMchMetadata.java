@@ -138,7 +138,7 @@ public class EhrMchMetadata {
 		
 		public static final String ANTENATAL_VISIT_NUMBER = "1425AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		//        public static final Integer INITIAL_MCH_CLINIC_VISIT = 2;
+		public static final Integer INITIAL_MCH_CLINIC_VISIT = 2;
 		
 		public static final Integer RETURN_ANC_CLINIC_VISIT = 3;
 		

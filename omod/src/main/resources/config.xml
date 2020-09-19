@@ -9,7 +9,7 @@
 	<package>org.openmrs.module.mchapp</package>
 	<author>HealthIT</author>
 	<description>
-			${project.parent.description}
+			Management of the MCH store for the EHR work
 	</description>
 
 	<activator>org.openmrs.module.mchapp.MCHAppActivator</activator>
@@ -18,24 +18,13 @@
 	<!-- /Base Module Properties -->
 
 	<require_version>1.9.8</require_version>
-	<require_module version="1.7">
-		org.openmrs.module.uicommons
-	</require_module>
-	<require_module version="3.3.1">
-		org.openmrs.module.uiframework
-	</require_module>
-	<require_module version="1.7">
-		org.openmrs.module.metadatadeploy
-	</require_module>
-	<require_module version="1.0.0-SNAPSHOT">
-		org.openmrs.module.hospitalcore
-	</require_module>
-	<require_module version="1.0.0-SNAPSHOT">
-		org.openmrs.module.ehrinventory
-	</require_module>
-<!--	<require_module version="1.0.0-SNAPSHOT">-->
-<!--		org.openmrs.module.patientdashboardapp-->
-<!--	</require_module>-->
+
+	<require_module>org.openmrs.module.uicommons</require_module>
+	<require_module>org.openmrs.module.uiframework</require_module>
+	<require_module>org.openmrs.module.hospitalcore</require_module>
+	<require_module>org.openmrs.module.ehrinventory</require_module>
+    <require_module>org.openmrs.module.patientdashboardapp</require_module>
+	<require_module>org.openmrs.module.ehrconfigs</require_module>
 
 	<!-- Extensions -->
 	<extension>
