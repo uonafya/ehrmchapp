@@ -1,16 +1,8 @@
 package org.openmrs.module.mchapp;
 
-import org.openmrs.Program;
-import org.openmrs.VisitType;
-import org.openmrs.api.VisitService;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.metadatadeploy.bundle.AbstractMetadataBundle;
-import org.springframework.stereotype.Component;
 
-import static org.openmrs.module.metadatadeploy.bundle.CoreConstructors.*;
-
-@Component
-public class EhrMchMetadata extends AbstractMetadataBundle {
+public class EhrMchMetadata {
 	
 	public static final class _AncConstantConceptQuestions {
 		
@@ -23,15 +15,15 @@ public class EhrMchMetadata extends AbstractMetadataBundle {
 	
 	public static final class _VistTypes {
 		
-		public static final String FACILITY_VISIT = "1d68d240-f756-11ea-9cea-3befc33f1528";
+		public static final String FACILITY_VISIT = "66a4ef36-fac4-11ea-bcbf-375d20d55603"; //aligned
 		
-		public static final String INITIAL_MCH_CLINIC_VISIT = "6abfb77e-f757-11ea-8407-3324a437e44c";
+		public static final String INITIAL_MCH_CLINIC_VISIT = "76583758-fac4-11ea-b5f3-d340ddbbb0d2"; //aligned
 		
-		public static final String RETURN_ANC_CLINIC_VISIT = "ddd68ada-f757-11ea-95c9-476e3c55d050";
+		public static final String RETURN_ANC_CLINIC_VISIT = "8462eab4-fac4-11ea-a965-338aef2ca794"; //aligned
 		
-		public static final String RETURN_PNC_CLINIC_VISIT = "1a341498-f758-11ea-bb87-f307ba6e4e97";
+		public static final String RETURN_PNC_CLINIC_VISIT = "94e337ea-fac4-11ea-be33-0736112d65ec"; //aligned
 		
-		public static final String RETURN_CWC_CLINIC_VISIT = "50a3a548-f758-11ea-93dd-ef5edbbc39fb";
+		public static final String RETURN_CWC_CLINIC_VISIT = "a6329004-fac4-11ea-babb-7b8345fde680"; //aligned
 	}
 	
 	public static final class MchAppConstants {
@@ -169,36 +161,6 @@ public class EhrMchMetadata extends AbstractMetadataBundle {
 	
 	public static int getInitialMCHClinicVisitTypeId() {
 		return Context.getVisitService().getVisitTypeByUuid(_VistTypes.INITIAL_MCH_CLINIC_VISIT).getVisitTypeId();
-	}
-	
-	@Override
-	public void install() throws Exception {
-		install(encounterType("ANCENCOUNTER", "ANC encounter type", _MchEncounterType.ANC_ENCOUNTER_TYPE));
-		install(encounterType("ANCTRIAGEENCOUNTER", "ANC triage encounter type", _MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE));
-		install(encounterType("PNCENCOUNTER", "PNC encounter type", _MchEncounterType.PNC_ENCOUNTER_TYPE));
-		install(encounterType("PNCTRIAGEENCOUNTER", "PNC triage encounter type", _MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE));
-		install(encounterType("CWCENCOUNTER", "CWC encounter type", _MchEncounterType.CWC_ENCOUNTER_TYPE));
-		install(encounterType("CWCTRIAGEENCOUNTER", "CWC triage encounter type", _MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE));
-		install(encounterType("FACILITYVISIT",
-		    "Patient visits the clinic/hospital (as opposed to a home visit, or telephone contact)",
-		    _VistTypes.FACILITY_VISIT));
-		install(encounterType("INITIALMCHCLINICVISIT", "Initial Visit to the MCH Clinic",
-		    _VistTypes.INITIAL_MCH_CLINIC_VISIT));
-		install(encounterType("RETURNANCCLINICVISIT", "Return ANC Clinic Visit", _VistTypes.RETURN_ANC_CLINIC_VISIT));
-		install(encounterType("RETURNPNCCLINICVISIT", "Return PNC Clinic Visit", _VistTypes.RETURN_PNC_CLINIC_VISIT));
-		install(encounterType("RETURNCWCCLINICVISIT", "Return CWC Clinic Visit", _VistTypes.RETURN_CWC_CLINIC_VISIT));
-		
-		if (possible(Program.class, _MchProgram.ANC_PROGRAM) == null) {
-			install(program("Antenatal Care Program", "ANC Program", _MchProgram.ANC_PROGRAM_CONCEPT,
-			    _MchProgram.ANC_PROGRAM));
-		}
-		if (possible(Program.class, _MchProgram.PNC_PROGRAM) == null) {
-			install(program("Postnatal Care Program", "PNC Program", _MchProgram.PNC_PROGRAM_CONCEPT,
-			    _MchProgram.PNC_PROGRAM));
-		}
-		if (possible(Program.class, _MchProgram.CWC_PROGRAM) == null) {
-			install(program("Child Welfare Program", "CW Program", _MchProgram.CWC_PROGRAM_CONCEPT, _MchProgram.CWC_PROGRAM));
-		}
 	}
 	
 }
