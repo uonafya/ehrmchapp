@@ -58,31 +58,29 @@ public class EhrMchMetadata {
 		
 		public static final String CWC_SUPPLEMENTED_WITH_MNP = "534705aa-8857-4e70-9b08-b363fb3ce677";// to be created(100126237)
 		
-		public static final String CWC_EXAMINATION_CLASS = "8d491a9a-c2cc-11de-8d13-0010c6dffd0f";// to be created(missing)g
+		public static final String CWC_EXAMINATION_CLASS = "8d491a9a-c2cc-11de-8d13-0010c6dffd0f";
 		
 		public static final String CWC_EXAMINATION_DATATYPE = "8d4a48b6-c2cc-11de-8d13-0010c6dffd0f";
 		
-		public static final String MCH_HIV_PRIOR_STATUS = "1406dbf3-05da-4264-9659-fb688cea5809";
+		public static final String MCH_HIV_PRIOR_STATUS = "1169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";//1169 to be checked
 		
-		public static final String MCH_HIV_PARTNER_TESTED = "93366255-8903-44af-8370-3b68c0400930";
+		public static final String MCH_HIV_PARTNER_TESTED = "161557AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String MCH_HIV_PARTNER_STATUS = "df68a879-70c4-40d5-becc-a2679b174036";
+		public static final String MCH_HIV_PARTNER_STATUS = "1436AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //1436
 		
-		public static final String MCH_HIV_COUPLE_COUNCELLED = "27b96311-bc00-4839-b7c9-31401b44cd3a";
+		public static final String PNC_EXCERCISE = "151321AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //place holder
 		
-		public static final String PNC_EXCERCISE = "ba18b0c3-8208-465a-9c95-2f85047e2939";
+		public static final String PNC_MULTIVITAMIN = "5712097d-a478-4ff4-a2aa-bd827a6833ed"; //place holder
 		
-		public static final String PNC_MULTIVITAMIN = "5712097d-a478-4ff4-a2aa-bd827a6833ed";
+		public static final String PNC_VITAMIN_A = "86339AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String PNC_VITAMIN_A = "c764e84f-cfb2-424a-acec-20e4fb8531b7";
+		public static final String PNC_HAEMATINICS = "461AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; // holder for PNC_HAEMATINICS
 		
-		public static final String PNC_HAEMATINICS = "5d935a14-9c53-4171-bda7-51da05fbb9eb";
+		public static final String ANC_FEEDING_COUNCELLING = "161651AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String ANC_FEEDING_COUNCELLING = "fb5a5471-e912-4288-8c25-750f7f88281f";
+		public static final String ANC_FEEDING_EXCLUSSIVE = "161096AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String ANC_FEEDING_EXCLUSSIVE = "42197783-8b24-49b0-b290-cbb368fa0113";
-		
-		public static final String ANC_FEEDING_INFECTED = "8a3c420e-b4ff-4710-81fd-90c7bfa6de72";
+		public static final String ANC_FEEDING_INFECTED = "162522AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String ANC_FEEDING_DECISION = "a0bf86bb-b50e-4be4-a54c-32518bfb843f";
 		
@@ -98,15 +96,15 @@ public class EhrMchMetadata {
 		
 		public static final String WEIGHT = "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String SYSTOLIC = "6aa7eab2-138a-4041-a87f-00d9421492bc";
+		public static final String SYSTOLIC = "5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String DAISTOLIC = "5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String TEMPERATURE = "5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String MUAC = "b7112b6c-de10-42ee-b54d-2e1be98cd2d6";
+		public static final String MUAC = "160908AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //160908
 		
-		public static final String GROWTH_STATUS = "562a6c3e-519b-4a50-81be-76ca67b5d5ec";
+		public static final String GROWTH_STATUS = "112937AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; //holder for 100126186
 		
 		public static final String WEIGHT_CATEGORY = "1854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
@@ -114,7 +112,7 @@ public class EhrMchMetadata {
 	
 	public static final class _MchEncounterType {
 		
-		public static final String ANC_ENCOUNTER_TYPE = "40629059-f621-42bd-a7c4-bd22e2636e47";
+		public static final String ANC_ENCOUNTER_TYPE = "64132ecd-3a0f-41b8-b743-78c26af2f4b9"; //HOLDER FOR 100126225
 		
 		public static final String ANC_TRIAGE_ENCOUNTER_TYPE = "2540f75d-7af5-472e-92d7-546d1add0759";
 		
