@@ -33,9 +33,9 @@
 	<require_module version="1.0.0-SNAPSHOT">
 		org.openmrs.module.ehrinventory
 	</require_module>
-<!--	<require_module version="1.0.0-SNAPSHOT">-->
-<!--		org.openmrs.module.patientdashboardapp-->
-<!--	</require_module>-->
+git 	<require_module version="1.0.0-SNAPSHOT">-->
+		org.openmrs.module.patientdashboardapp-->
+	</require_module>-->
 
 	<!-- Extensions -->
 	<extension>

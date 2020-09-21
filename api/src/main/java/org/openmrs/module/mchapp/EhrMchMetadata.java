@@ -20,6 +20,7 @@ public class EhrMchMetadata extends AbstractMetadataBundle {
 		
 		public static final String LAST_MENSTRUAL_PERIOD = "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 	}
+	
 	//reached here for concept uuid confirmation
 	public static final class _VistTypes {
 		
