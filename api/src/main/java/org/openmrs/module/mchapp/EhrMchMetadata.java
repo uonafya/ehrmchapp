@@ -28,21 +28,31 @@ public class EhrMchMetadata {
 	
 	public static final class MchAppConstants {
 		
-		public static final String FAMILY_PLANNING_CLINIC_CONCEPT_UUID = "68f095fb-1701-42b1-bd30-46d5f0473ae6";
+		public static final String ANC_DEWORMING = "159922AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String CWC_CHILD_COMPLETED_IMMUNIZATION = "Child Fully Immunized";
+		public static final String ANC_LLITN = "160428AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String CWC_FOLLOW_UP = "6f7b4285-a04b-4f8b-be85-81c325289539";
+		public static final String PNC_CERVICAL_SCREENING_METHOD = "163589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String CWC_BREASTFEEDING_COUNCELLING = "42197783-8b24-49b0-b290-cbb368fa0113";
+		public static final String PNC_CERVICAL_SCREENING_RESULT = "23bee3ab-f241-4e56-8d92-1116dc6b516a";
 		
-		public static final String CWC_BREASTFEEDING_EXCLUSSIVE = "42197783-8b24-49b0-b290-cbb368fa0113";
-		
-		public static final String CWC_BREASTFEEDING_FOR_INFECTED = "8a3c420e-b4ff-4710-81fd-90c7bfa6de72";
+		public static final String PNC_FAMILY_PLANNING = "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String CWC_LLITN = "160428AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String CWC_DEWORMED = "159922AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String FAMILY_PLANNING_CLINIC_CONCEPT_UUID = "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String CWC_CHILD_COMPLETED_IMMUNIZATION = "164134AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String CWC_FOLLOW_UP = "162207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String CWC_BREASTFEEDING_COUNCELLING = "1910AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String CWC_BREASTFEEDING_EXCLUSSIVE = "5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		
+		public static final String CWC_BREASTFEEDING_FOR_INFECTED = "8a3c420e-b4ff-4710-81fd-90c7bfa6de72";
 		
 		public static final String CWC_VITAMIN_A_SUPPLEMENTATION = "c1346a48-9777-428f-a908-e8bff24e4e37";
 		
@@ -68,8 +78,6 @@ public class EhrMchMetadata {
 		
 		public static final String PNC_HAEMATINICS = "5d935a14-9c53-4171-bda7-51da05fbb9eb";
 		
-		public static final String PNC_FAMILY_PLANNING = "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-		
 		public static final String ANC_FEEDING_COUNCELLING = "fb5a5471-e912-4288-8c25-750f7f88281f";
 		
 		public static final String ANC_FEEDING_EXCLUSSIVE = "42197783-8b24-49b0-b290-cbb368fa0113";
@@ -80,13 +88,6 @@ public class EhrMchMetadata {
 		
 		public static final String ANC_EXCERCISE = "0a92efcc-51b3-448d-b4e3-a743ea5aa18c";
 		
-		public static final String ANC_DEWORMING = "159922AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-		
-		public static final String ANC_LLITN = "160428AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-		
-		public static final String PNC_CERVICAL_SCREENING_METHOD = "50c026c3-f2bc-44b9-a9dd-e972ffcbb774";
-		
-		public static final String PNC_CERVICAL_SCREENING_RESULT = "1406dbf3-05da-4264-9659-fb688cea5809";
 	}
 	
 	public static final class MchAppTriageConstants {
