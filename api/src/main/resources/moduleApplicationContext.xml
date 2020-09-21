@@ -18,18 +18,18 @@
   		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!-- Add here beans related to the API context -->
-    <bean id= "mchapp.app.stores" factory-bean="kenyacore.appFactoryBean" factory-method="createInstance">
+    <bean id="mchapp.app.stores" factory-bean="kenyacore.appFactoryBean" factory-method="createInstance">
         <constructor-arg value="mchapp.stores"/>
-        <constructor-arg value="Mch stores"/>
+        <constructor-arg value="Mch Stores"/>
         <constructor-arg value="mchapp/stores.page"/>
         <constructor-arg value="mchapp:apps/mch.jpg"/>
         <constructor-arg value="680"/>
     </bean>
-	<bean id="mchService"
-			class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MchServiceImpl">
+	<bean id="mchServiceIm"
+			class="org.openmrs.module.mchapp.api.impl.MchServiceImpl">
 	</bean>
-	<bean id="mchEncounterService"
-			class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MchEncounterServiceImpl">
+	<bean id="mchEncounterServiceIm"
+			class="org.openmrs.module.mchapp.api.impl.MchEncounterServiceImpl">
 	</bean>
 
     <bean id="immunizationService"
@@ -38,9 +38,9 @@
             <ref bean="transactionManager"/>
         </property>
         <property name="target">
-            <bean class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.ImmunizationServiceImpl">
+            <bean class="org.openmrs.module.mchapp.api.impl.ImmunizationServiceImpl">
                 <property name="dao">
-                    <bean class="${project.parent.groupId}.${project.parent.artifactId}.db.hibernate.HibernateImmunizationCommoditiesDAO">
+                    <bean class="org.openmrs.module.mchapp.db.hibernate.HibernateImmunizationCommoditiesDAO">
                         <property name="sessionFactory">
                             <ref bean="sessionFactory"/>
                         </property>
@@ -60,16 +60,16 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>${project.parent.groupId}.${project.parent.artifactId}.api.MchService</value>
-				<ref local="mchService" />
+				<value>org.openmrs.module.mchapp.api.MchService</value>
+				<ref local="mchServiceIm" />
 			</list>
 		</property>
 	</bean>
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>${project.parent.groupId}.${project.parent.artifactId}.api.MchEncounterService</value>
-				<ref local="mchEncounterService" />
+				<value>org.openmrs.module.mchapp.api.MchEncounterService</value>
+				<ref local="mchEncounterServiceIm" />
 			</list>
 		</property>
 	</bean>
@@ -77,7 +77,7 @@
     <bean parent="serviceContext">
         <property name="moduleService">
             <list>
-                <value>${project.parent.groupId}.${project.parent.artifactId}.api.ImmunizationService</value>
+                <value>org.openmrs.module.mchapp.api.ImmunizationService</value>
                 <ref local="immunizationService"/>
             </list>
         </property>

@@ -17,7 +17,7 @@ import org.openmrs.module.mchapp.api.MchEncounterService;
 
 public class MchEncounterServiceImpl implements MchEncounterService {
 	
-	private static final String FINAL_DIAGNOSIS_UUID = "7033ef37-461c-4953-a757-34722b6d9e38";
+	private static final String FINAL_DIAGNOSIS_UUID = "160250AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 	
 	private static final int MAX_ANC_DURATION = 9;
 	
