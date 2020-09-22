@@ -131,7 +131,7 @@ public class CwcTriageFragmentController {
 			if (previousVisitsByPatient.size() == 0) {
 				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
-				visitTypeId = EhrMchMetadata._MchProgram.RETURN_CWC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getReturnCwcClinicVisitTypeId();
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
 			    EhrMchMetadata._MchEncounterType.CWC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
