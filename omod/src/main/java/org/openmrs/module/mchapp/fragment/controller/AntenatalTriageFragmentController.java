@@ -121,7 +121,7 @@ public class AntenatalTriageFragmentController {
 			if (previousVisitsByPatient.size() == 0) {
 				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
-				visitTypeId = EhrMchMetadata._MchProgram.RETURN_ANC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getReturnAncClinicVisitTypeId();
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
 			    EhrMchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
