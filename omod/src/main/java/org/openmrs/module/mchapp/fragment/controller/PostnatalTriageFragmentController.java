@@ -96,7 +96,7 @@ public class PostnatalTriageFragmentController {
 			if (previousVisitsByPatient.size() == 0) {
 				visitTypeId = EhrMchMetadata.getInitialMCHClinicVisitTypeId();
 			} else {
-				visitTypeId = EhrMchMetadata._MchProgram.RETURN_PNC_CLINIC_VISIT;
+				visitTypeId = EhrMchMetadata.getReturnPncClinicVisitTypeId();
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
 			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
