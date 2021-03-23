@@ -1,5 +1,19 @@
 <%
-    ui.decorateWith("appui", "standardEmrPage", [title: "Mother Child Health"])
+	ui.decorateWith("kenyaemr", "standardPage", [title: "MCH"])
+
+	ui.includeJavascript("ehrcashier", "paging.js")
+	ui.includeJavascript("ehrconfigs", "moment.js")
+	ui.includeJavascript("ehrcashier", "common.js")
+	ui.includeJavascript("ehrcashier", "jquery.PrintArea.js")
+	ui.includeJavascript("ehrconfigs", "knockout-3.4.0.js")
+	ui.includeJavascript("ehrconfigs", "jquery-ui-1.9.2.custom.min.js")
+	ui.includeJavascript("ehrconfigs", "underscore-min.js")
+	ui.includeJavascript("ehrconfigs", "emr.js")
+	ui.includeJavascript("ehrconfigs", "jquery.simplemodal.1.4.4.min.js")
+
+	ui.includeCss("ehrconfigs", "jquery-ui-1.9.2.custom.min.css")
+	ui.includeCss("ehrconfigs", "referenceapplication.css")
+
     ui.includeJavascript("billingui", "moment.js")
     ui.includeJavascript("mchapp", "object-to-query-string.js")
     ui.includeJavascript("mchapp", "drugOrder.js")

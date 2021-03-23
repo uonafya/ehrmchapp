@@ -25,12 +25,13 @@
         <constructor-arg value="mchapp:apps/mch.jpg"/>
         <constructor-arg value="680"/>
     </bean>
-	<bean id="mchServiceIm"
-			class="org.openmrs.module.mchapp.api.impl.MchServiceImpl">
-	</bean>
-	<bean id="mchEncounterServiceIm"
-			class="org.openmrs.module.mchapp.api.impl.MchEncounterServiceImpl">
-	</bean>
+    <!-- Add here beans related to the API context -->
+    <bean id="mchService"
+          class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MchServiceImpl">
+    </bean>
+    <bean id="mchEncounterService"
+          class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MchEncounterServiceImpl">
+    </bean>
 
     <bean id="immunizationService"
           class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
@@ -38,9 +39,9 @@
             <ref bean="transactionManager"/>
         </property>
         <property name="target">
-            <bean class="org.openmrs.module.mchapp.api.impl.ImmunizationServiceImpl">
+            <bean class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.ImmunizationServiceImpl">
                 <property name="dao">
-                    <bean class="org.openmrs.module.mchapp.db.hibernate.HibernateImmunizationCommoditiesDAO">
+                    <bean class="${project.parent.groupId}.${project.parent.artifactId}.db.hibernate.HibernateImmunizationCommoditiesDAO">
                         <property name="sessionFactory">
                             <ref bean="sessionFactory"/>
                         </property>
@@ -56,28 +57,28 @@
         </property>
     </bean>
 
-	<!-- Services accessible via Context.getService() -->
-	<bean parent="serviceContext">
-		<property name="moduleService">
-			<list>
-				<value>org.openmrs.module.mchapp.api.MchService</value>
-				<ref local="mchServiceIm" />
-			</list>
-		</property>
-	</bean>
-	<bean parent="serviceContext">
-		<property name="moduleService">
-			<list>
-				<value>org.openmrs.module.mchapp.api.MchEncounterService</value>
-				<ref local="mchEncounterServiceIm" />
-			</list>
-		</property>
-	</bean>
+    <!-- Services accessible via Context.getService() -->
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list>
+                <value>${project.parent.groupId}.${project.parent.artifactId}.api.MchService</value>
+                <ref local="mchService" />
+            </list>
+        </property>
+    </bean>
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list>
+                <value>${project.parent.groupId}.${project.parent.artifactId}.api.MchEncounterService</value>
+                <ref local="mchEncounterService" />
+            </list>
+        </property>
+    </bean>
 
     <bean parent="serviceContext">
         <property name="moduleService">
             <list>
-                <value>org.openmrs.module.mchapp.api.ImmunizationService</value>
+                <value>${project.parent.groupId}.${project.parent.artifactId}.api.ImmunizationService</value>
                 <ref local="immunizationService"/>
             </list>
         </property>
