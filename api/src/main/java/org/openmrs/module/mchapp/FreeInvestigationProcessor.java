@@ -83,9 +83,9 @@ public class FreeInvestigationProcessor {
 		order.setConcept(opdTestOrder.getValueCoded());
 		order.setCreator(opdTestOrder.getCreator());
 		order.setDateCreated(opdTestOrder.getCreatedOn());
-		order.setOrderer(opdTestOrder.getCreator());
+		//order.setOrderer(opdTestOrder.getCreator()); //Incompatible types User & Provider ids
 		order.setPatient(opdTestOrder.getPatient());
-		order.setStartDate(new Date());
+		order.setDateActivated(new Date()); //Should be set automatically in the original class
 		order.setAccessionNumber("0");
 		try {
 			order.setOrderType(Context.getOrderService().getOrderType(Integer.parseInt(orderTypeId)));
