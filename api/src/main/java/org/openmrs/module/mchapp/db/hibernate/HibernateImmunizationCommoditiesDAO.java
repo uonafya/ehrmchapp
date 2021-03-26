@@ -17,14 +17,24 @@ import org.openmrs.Person;
 import org.openmrs.PersonName;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.db.DAOException;
+import org.openmrs.module.hospitalcore.PatientQueueService;
+import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
+import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.hospitalcore.model.ImmunizationStoreTransactionType;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.db.ImmunizationCommoditiesDAO;
-import org.openmrs.module.mchapp.model.*;
+import org.openmrs.module.mchapp.model.ImmunizationEquipment;
+import org.openmrs.module.mchapp.model.ImmunizationStockout;
+import org.openmrs.module.mchapp.model.ImmunizationStorePatientTransaction;
+import org.openmrs.module.mchapp.model.TransactionType;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Stanslaus Odhiambo Created on 8/24/2016.
@@ -353,11 +363,12 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		
 		if (drugId != null) {
 			InventoryService inventoryService = Context.getService(InventoryService.class);
+			PatientQueueService patientQueueService = Context.getService(PatientQueueService.class);
 			InventoryDrug inventoryDrug = inventoryService.getDrugById(drugId);
 			
 			if (inventoryDrug != null) {
-				ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
-				List<ImmunizationStoreDrug> drugs = immunizationService.getImmunizationStoreDrugsForDrug(inventoryDrug);
+				//ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
+				List<ImmunizationStoreDrug> drugs = patientQueueService.getImmunizationStoreDrugsForDrug(inventoryDrug);
 				
 				criteria.add(Restrictions.in("storeDrug", drugs));
 			}
@@ -428,13 +439,6 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 			criteria.add(Restrictions.isNull("dateRestocked"));
 		}
 		
-		return criteria.list();
-	}
-	
-	@Override
-	public List<ImmunizationStoreDrug> getImmunizationStoreDrugsForDrug(InventoryDrug inventoryDrug) {
-		Criteria criteria = getSession().createCriteria(ImmunizationStoreDrug.class).add(
-		    Restrictions.eq("inventoryDrug", inventoryDrug));
 		return criteria.list();
 	}
 	

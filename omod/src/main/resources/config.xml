@@ -39,10 +39,10 @@
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 
-		ImmunizationStoreTransactionType.hbm.xml
-		ImmunizationStoreDrug.hbm.xml
+		I<!--mmunizationStoreTransactionType.hbm.xml-->
+		<!--ImmunizationStoreDrug.hbm.xml-->
 		ImmunizationStorePatientTransaction.hbm.xml
-		ImmunizationStoreDrugTransactionDetail.hbm.xml
+		<!--ImmunizationStoreDrugTransactionDetail.hbm.xml-->
 		ImmunizationEquipment.hbm.xml
 		ImmunizationStockout.hbm.xml
 
