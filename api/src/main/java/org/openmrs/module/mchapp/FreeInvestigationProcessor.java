@@ -13,6 +13,7 @@ import org.openmrs.EncounterType;
 import org.openmrs.Location;
 import org.openmrs.Order;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.ehrconfigs.utils.EhrConfigsUtils;
 import org.openmrs.module.hospitalcore.BillingConstants;
 import org.openmrs.module.hospitalcore.LabService;
 import org.openmrs.module.hospitalcore.RadiologyCoreService;
@@ -83,9 +84,9 @@ public class FreeInvestigationProcessor {
 		order.setConcept(opdTestOrder.getValueCoded());
 		order.setCreator(opdTestOrder.getCreator());
 		order.setDateCreated(opdTestOrder.getCreatedOn());
-		order.setOrderer(opdTestOrder.getCreator());
+		order.setOrderer(EhrConfigsUtils.getProvider(opdTestOrder.getCreator().getPerson()));
 		order.setPatient(opdTestOrder.getPatient());
-		order.setStartDate(new Date());
+		order.setDateActivated(new Date());
 		order.setAccessionNumber("0");
 		try {
 			order.setOrderType(Context.getOrderService().getOrderType(Integer.parseInt(orderTypeId)));
