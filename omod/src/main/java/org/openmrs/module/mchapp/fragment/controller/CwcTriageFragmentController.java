@@ -6,7 +6,7 @@ import org.openmrs.api.ProgramWorkflowService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
 import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.ImmunizationService;
@@ -260,7 +260,7 @@ public class CwcTriageFragmentController {
 		
 		patientTransaction.setPatient(patient);
 		patientTransaction.setState(state);
-		patientTransaction.setStoreDrug(storeDrug);
+		//patientTransaction.setStoreDrug(storeDrug);
 		patientTransaction.setVvmStage(vvmStage);
 		patientTransaction.setQuantity(quantity);
 		patientTransaction.setCreatedOn(new Date());

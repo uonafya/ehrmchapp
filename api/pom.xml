@@ -47,10 +47,15 @@
 			<artifactId>ehrconfigs-api</artifactId>
 
 		</dependency>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>metadatadeploy-api</artifactId>
+            <version>${metadatadeployVersion}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>hospitalcore-api</artifactId>
-			<version>${hospitalcorVersion}</version>
+            <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>

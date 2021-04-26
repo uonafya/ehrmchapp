@@ -42,7 +42,7 @@
                 <property name="dao">
                     <bean class="org.openmrs.module.mchapp.db.hibernate.HibernateImmunizationCommoditiesDAO">
                         <property name="sessionFactory">
-                            <ref bean="sessionFactory"/>
+                            <ref bean="dbSessionFactory"/>
                         </property>
                     </bean>
                 </property>

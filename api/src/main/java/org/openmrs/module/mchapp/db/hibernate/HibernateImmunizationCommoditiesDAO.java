@@ -6,22 +6,19 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.NotYetImplementedException;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.Patient;
-import org.openmrs.PatientIdentifier;
-import org.openmrs.Person;
-import org.openmrs.PersonName;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.db.DAOException;
+import org.openmrs.api.db.hibernate.DbSession;
+import org.openmrs.api.db.hibernate.DbSessionFactory;
 import org.openmrs.module.hospitalcore.PatientQueueService;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrugTransactionDetail;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreTransactionType;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.mchapp.model.ImmunizationStoreTransactionType;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.db.ImmunizationCommoditiesDAO;
@@ -31,10 +28,7 @@ import org.openmrs.module.mchapp.model.ImmunizationStorePatientTransaction;
 import org.openmrs.module.mchapp.model.TransactionType;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Stanslaus Odhiambo Created on 8/24/2016.
@@ -51,17 +45,17 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 	/**
 	 * Hibernate session factory
 	 */
-	private SessionFactory sessionFactory;
+	private DbSessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sessionFactory) throws DAOException {
+	public void setSessionFactory(DbSessionFactory sessionFactory) throws DAOException {
 		this.sessionFactory = sessionFactory;
 	}
 	
 	/**
 	 * @return the sessionFactory
 	 */
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	public DbSessionFactory getSessionFactory() {
+		return this.sessionFactory;
 	}
 	
 	@Override
@@ -363,12 +357,10 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		
 		if (drugId != null) {
 			InventoryService inventoryService = Context.getService(InventoryService.class);
-			PatientQueueService patientQueueService = Context.getService(PatientQueueService.class);
 			InventoryDrug inventoryDrug = inventoryService.getDrugById(drugId);
-			
 			if (inventoryDrug != null) {
-				//ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
-				List<ImmunizationStoreDrug> drugs = patientQueueService.getImmunizationStoreDrugsForDrug(inventoryDrug);
+				ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
+				List<ImmunizationStoreDrug> drugs = immunizationService.getImmunizationStoreDrugsForDrug(inventoryDrug);
 				
 				criteria.add(Restrictions.in("storeDrug", drugs));
 			}
@@ -442,7 +434,14 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		return criteria.list();
 	}
 	
-	private Session getSession() {
+	@Override
+	public List<ImmunizationStoreDrug> getImmunizationStoreDrugsForDrug(InventoryDrug inventoryDrug) {
+		Criteria criteria = getSession().createCriteria(ImmunizationStoreDrug.class).add(
+		    Restrictions.eq("inventoryDrug", inventoryDrug));
+		return criteria.list();
+	}
+	
+	private DbSession getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 }

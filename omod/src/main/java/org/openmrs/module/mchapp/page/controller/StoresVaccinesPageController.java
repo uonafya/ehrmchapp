@@ -1,8 +1,8 @@
 package org.openmrs.module.mchapp.page.controller;
 
 import org.openmrs.api.context.Context;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.mchapp.api.ImmunizationService;
