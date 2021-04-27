@@ -2,7 +2,6 @@ package org.openmrs.module.mchapp.model;
 
 import org.openmrs.Person;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;

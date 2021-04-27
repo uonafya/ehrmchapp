@@ -6,15 +6,14 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.NotYetImplementedException;
+import org.hibernate.classic.Session;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.db.DAOException;
-import org.openmrs.api.db.hibernate.DbSession;
-import org.openmrs.api.db.hibernate.DbSessionFactory;
-import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
 import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
 import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
@@ -45,16 +44,16 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 	/**
 	 * Hibernate session factory
 	 */
-	private DbSessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(DbSessionFactory sessionFactory) throws DAOException {
+	public void setSessionFactory(SessionFactory sessionFactory) throws DAOException {
 		this.sessionFactory = sessionFactory;
 	}
 	
 	/**
 	 * @return the sessionFactory
 	 */
-	public DbSessionFactory getSessionFactory() {
+	public SessionFactory getSessionFactory() {
 		return this.sessionFactory;
 	}
 	
@@ -63,7 +62,7 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		String issue = "0";
 		String hql = "SELECT issue_count FROM inventory_store_drug_patient_detail isdpt INNER JOIN inventory_store_drug_patient isdp ON isdp.id=isdpt.store_drug_patient_id INNER JOIN inventory_store_drug_transaction_detail isdtd ON isdpt.transaction_detail_id=isdtd.id WHERE drug_id=188 AND patient_id="
 		        + patientId + " ORDER BY issue_count DESC LIMIT 1";
-		SQLQuery sqlquery = this.sessionFactory.getCurrentSession().createSQLQuery(hql);
+		SQLQuery sqlquery = sessionFactory.getCurrentSession().createSQLQuery(hql);
 		List query = sqlquery.list();
 		
 		if (CollectionUtils.isNotEmpty(query)) {
@@ -441,7 +440,7 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		return criteria.list();
 	}
 	
-	private DbSession getSession() {
+	private Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 }

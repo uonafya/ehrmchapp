@@ -65,14 +65,17 @@
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>ehrinventory-api</artifactId>
+            <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>kenyacore-api</artifactId>
+            <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>kenyaui-api</artifactId>
+            <scope>provided</scope>
 		</dependency>
 
 
