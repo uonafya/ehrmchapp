@@ -1,6 +1,6 @@
 package org.openmrs.module.mchapp;
 
-import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
+import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
 
 /**
  * Created by daugm on 10/10/2016.

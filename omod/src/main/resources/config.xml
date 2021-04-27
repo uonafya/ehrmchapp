@@ -17,7 +17,7 @@
 	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
 	<!-- /Base Module Properties -->
 
-	<require_version>1.9.8</require_version>
+	<require_version>${openMRSVersion}</require_version>
 
 	<require_module>org.openmrs.module.uicommons</require_module>
 	<require_module>org.openmrs.module.uiframework</require_module>
@@ -39,10 +39,10 @@
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 
-		ImmunizationStoreTransactionType.hbm.xml
-		ImmunizationStoreDrug.hbm.xml
+		I<!--mmunizationStoreTransactionType.hbm.xml-->
+		<!--ImmunizationStoreDrug.hbm.xml-->
 		ImmunizationStorePatientTransaction.hbm.xml
-		ImmunizationStoreDrugTransactionDetail.hbm.xml
+		<!--ImmunizationStoreDrugTransactionDetail.hbm.xml-->
 		ImmunizationEquipment.hbm.xml
 		ImmunizationStockout.hbm.xml
 
