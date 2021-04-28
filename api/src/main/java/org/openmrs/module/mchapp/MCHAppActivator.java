@@ -53,8 +53,6 @@ public class MCHAppActivator implements ModuleActivator {
 	 */
 	public void started() {
 		log.info("MCH App Module started");
-		MetadataDeployService svc = Context.getService(MetadataDeployService.class);
-		svc.installBundles(Context.getRegisteredComponents(MetadataBundle.class));
 	}
 	
 	/**
