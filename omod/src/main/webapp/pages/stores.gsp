@@ -1,9 +1,17 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "MCH Stores"])
-    ui.includeJavascript("billingui", "moment.js")
-
+    ui.includeJavascript("ehrcashier", "moment.js")
+    ui.includeCss("ehrconfigs", "jquery.dataTables.min.css")
     ui.includeCss("uicommons", "datatables/dataTables_jui.css")
-    ui.includeJavascript("patientqueueapp", "jquery.dataTables.min.js")
+    ui.includeJavascript("ehrconfigs", "emr.js")
+    ui.includeCss("ehrconfigs", "referenceapplication.css")
+    ui.includeJavascript("ehrconfigs", "jquery.dataTables.min.js")
+    ui.includeJavascript("ehrconfigs", "knockout-3.4.0.js")
+    ui.includeJavascript("ehrconfigs", "jquery.simplemodal.1.4.4.min.js")
+    ui.includeCss("ehrconfigs", "jquery-ui-1.9.2.custom.min.css")
+    ui.includeJavascript("ehrconfigs", "jquery-ui-1.9.2.custom.min.js")
+
+
 %>
 
 <script>
