@@ -45,6 +45,7 @@
         <kenyauiVersion>2.1.1</kenyauiVersion>
         <ehrconfigsVersion>1.0.0-SNAPSHOT</ehrconfigsVersion>
         <hospitalcorVersion>1.0.0-SNAPSHOT</hospitalcorVersion>
+        <metadatadeployVersion>1.2</metadatadeployVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>

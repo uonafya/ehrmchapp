@@ -6,22 +6,18 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.NotYetImplementedException;
+import org.hibernate.classic.Session;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.Patient;
-import org.openmrs.PatientIdentifier;
-import org.openmrs.Person;
-import org.openmrs.PersonName;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.db.DAOException;
-import org.openmrs.module.hospitalcore.PatientQueueService;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrugTransactionDetail;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreTransactionType;
 import org.openmrs.module.hospitalcore.model.InventoryDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.mchapp.model.ImmunizationStoreTransactionType;
 import org.openmrs.module.ehrinventory.InventoryService;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.db.ImmunizationCommoditiesDAO;
@@ -31,10 +27,7 @@ import org.openmrs.module.mchapp.model.ImmunizationStorePatientTransaction;
 import org.openmrs.module.mchapp.model.TransactionType;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Stanslaus Odhiambo Created on 8/24/2016.
@@ -61,7 +54,7 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 	 * @return the sessionFactory
 	 */
 	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+		return this.sessionFactory;
 	}
 	
 	@Override
@@ -69,7 +62,7 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		String issue = "0";
 		String hql = "SELECT issue_count FROM inventory_store_drug_patient_detail isdpt INNER JOIN inventory_store_drug_patient isdp ON isdp.id=isdpt.store_drug_patient_id INNER JOIN inventory_store_drug_transaction_detail isdtd ON isdpt.transaction_detail_id=isdtd.id WHERE drug_id=188 AND patient_id="
 		        + patientId + " ORDER BY issue_count DESC LIMIT 1";
-		SQLQuery sqlquery = this.sessionFactory.getCurrentSession().createSQLQuery(hql);
+		SQLQuery sqlquery = sessionFactory.getCurrentSession().createSQLQuery(hql);
 		List query = sqlquery.list();
 		
 		if (CollectionUtils.isNotEmpty(query)) {
@@ -363,12 +356,10 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 		
 		if (drugId != null) {
 			InventoryService inventoryService = Context.getService(InventoryService.class);
-			PatientQueueService patientQueueService = Context.getService(PatientQueueService.class);
 			InventoryDrug inventoryDrug = inventoryService.getDrugById(drugId);
-			
 			if (inventoryDrug != null) {
-				//ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
-				List<ImmunizationStoreDrug> drugs = patientQueueService.getImmunizationStoreDrugsForDrug(inventoryDrug);
+				ImmunizationService immunizationService = Context.getService(ImmunizationService.class);
+				List<ImmunizationStoreDrug> drugs = immunizationService.getImmunizationStoreDrugsForDrug(inventoryDrug);
 				
 				criteria.add(Restrictions.in("storeDrug", drugs));
 			}
@@ -439,6 +430,13 @@ public class HibernateImmunizationCommoditiesDAO implements ImmunizationCommodit
 			criteria.add(Restrictions.isNull("dateRestocked"));
 		}
 		
+		return criteria.list();
+	}
+	
+	@Override
+	public List<ImmunizationStoreDrug> getImmunizationStoreDrugsForDrug(InventoryDrug inventoryDrug) {
+		Criteria criteria = getSession().createCriteria(ImmunizationStoreDrug.class).add(
+		    Restrictions.eq("inventoryDrug", inventoryDrug));
 		return criteria.list();
 	}
 	
