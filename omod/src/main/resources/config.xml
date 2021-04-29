@@ -23,12 +23,12 @@
     <require_modules>
         <require_module>org.openmrs.module.uicommons</require_module>
         <require_module>org.openmrs.module.uiframework</require_module>
-        <require_module version="1.0.0-SNAPSHOT">org.openmrs.module.hospitalcore</require_module>
-        <require_module version="1.0.0-SNAPSHOT">org.openmrs.module.patientdashboardapp</require_module>
-        <require_module version="1.0.0-SNAPSHOT">org.openmrs.module.ehrconfigs</require_module>
-        <require_module version="1.0.0-SNAPSHOT"> org.openmrs.module.ehrinventory</require_module>
-        <require_module version="1.3">org.openmrs.module.metadatadeploy </require_module>
-        <require_module version="17.0.3">org.openmrs.module.kenyaemr</require_module>
+        <require_module version="${hospitalcorVersion}">org.openmrs.module.hospitalcore</require_module>
+        <require_module version="${patientdashboardappVersion}">org.openmrs.module.patientdashboardapp</require_module>
+        <require_module version="${ehrconfigsVersion}">org.openmrs.module.ehrconfigs</require_module>
+        <require_module version="${ehrinventoryVersion}"> org.openmrs.module.ehrinventory</require_module>
+        <require_module version="${metadatadeployVersion}">org.openmrs.module.metadatadeploy</require_module>
+        <require_module>org.openmrs.module.kenyaemr</require_module>
     </require_modules>
     <!-- Extensions -->
     <extension>
