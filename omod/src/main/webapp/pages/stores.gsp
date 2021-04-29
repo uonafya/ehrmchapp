@@ -19,7 +19,7 @@
 
     var refreshInTable = function (resultData, dTable) {
         var rowCount = resultData.length;
-        if (rowCount == 0) {
+        if (rowCount === 0) {
             dTable.find('td.dataTables_empty').html("No Records Found");
         }
         dTable.fnPageChange(0);
@@ -29,7 +29,7 @@
         if (resultData.length > 0) {
             return false
         }
-        return !dTable || dTable.fnGetNodes().length == 0;
+        return !dTable || dTable.fnGetNodes().length === 0;
     };
 	
 	var checkBatchAvailability = function (drgId, drgName, testingFor) {
@@ -50,19 +50,19 @@
 				drugBatchesAccount.availableDrugs.removeAll();
 				drugBatchesSupplier.availableDrugs.removeAll();
 				
-				if (testingFor == 2){
+				if (testingFor === 2){
 					jq.each(data.drugs, function (i, item) {
 						drugBatches.availableDrugs.push(item);
 					});
-				} else if (testingFor == 3){
+				} else if (testingFor === 3){
 					jq.each(data.drugs, function (i, item) {
 						drugBatchesReturns.availableDrugs.push(item);
 					});
-				} else if (testingFor == 4){
+				} else if (testingFor === 4){
 					jq.each(data.drugs, function (i, item) {
 						drugBatchesAccount.availableDrugs.push(item);
 					});
-				} else if (testingFor == 5){
+				} else if (testingFor === 5){
 					jq.each(data.drugs, function (i, item) {
 						drugBatchesSupplier.availableDrugs.push(item);
 					});
@@ -109,26 +109,26 @@
             if (jq('#transactions').is(':visible')) {
 				var value = jq(this).data('value');
 				
-				if (value == 1){
+				if (value === 1){
 					document.getElementById("receiptsForm").reset();					
 					receiptsDialog.show();
 					
 					jq('#closeStockouts input').attr('checked', false);
 					jq('#closeStockouts').hide();					
 				}
-				else if (value == 2){
+				else if (value === 2){
 					document.getElementById("returnsForm").reset();
 					issuesDialog.show();					
 				}
-				else if (value == 3){
+				else if (value === 3){
 					document.getElementById("returnsForm").reset();				
 					returnsDialog.show();					
 				}
-				else if (value == 4){
+				else if (value === 4){
 					document.getElementById("issuesAccountForm").reset();
 					issuesAccountDialog.show();					
 				}
-				else if (value == 5){
+				else if (value === 5){
 					document.getElementById("supplierReturnsForm").reset();				
 					supplierReturnsDialog.show();					
 				}
@@ -200,8 +200,8 @@
                         remarks: jq("#rcptRemarks").val(),
                         closeStockouts: jq('#inputCloseStockouts:checked').length
                     }
-                    if (jq.trim(requestData.storeDrugName) == "" || jq.trim(requestData.quantity) == "" ||
-                            jq.trim(requestData.vvmStage) == "" || jq.trim(requestData.rcptBatchNo) == "" || jq.trim(requestData.expiryDate) == "") {
+                    if (jq.trim(requestData.storeDrugName) === "" || jq.trim(requestData.quantity) === "" ||
+                            jq.trim(requestData.vvmStage) === "" || jq.trim(requestData.rcptBatchNo) === "" || jq.trim(requestData.expiryDate) === "") {
                         jq().toastmessage('showErrorToast', "Check that the required fields have been filled");
                         return false;
                     }
@@ -214,7 +214,7 @@
 								getStoreDrugStock();
 								getStoreTransactions();
 								
-								if (requestData.closeStockouts == 1){
+								if (requestData.closeStockouts === 1){
 									getStoreStockouts();
 								}
 							} else {
@@ -249,8 +249,8 @@
                         issueRemarks: jq("#issueRemarks").val(),
                         patientId: null
                     }
-                    if (jq.trim(issueData.issueName) == "" || jq.trim(issueData.issueQuantity) == "" ||
-                            jq.trim(issueData.issueStage) == "" || jq.trim(issueData.issueBatchNo) == "" || jq.trim(issueData.issueAccount) == "") {
+                    if (jq.trim(issueData.issueName) === "" || jq.trim(issueData.issueQuantity) === "" ||
+                            jq.trim(issueData.issueStage) === "" || jq.trim(issueData.issueBatchNo) === "" || jq.trim(issueData.issueAccount) === "") {
                         jq().toastmessage('showErrorToast', "Check that the required fields have been filled");
                         return false;
                     }
@@ -297,7 +297,7 @@
                         issueAccountRemarks:	jq("#issueAccountRemarks").val()
                     }
 					
-                    if (jq.trim(requestData.issueAccountName) == "" || jq.trim(requestData.issueAccountQuantity) == "" || jq.trim(requestData.issueAccountStage) == "" || jq.trim(requestData.issueAccountBatchNo) == "" || jq.trim(requestData.accountName) == "") {
+                    if (jq.trim(requestData.issueAccountName) === "" || jq.trim(requestData.issueAccountQuantity) === "" || jq.trim(requestData.issueAccountStage) === "" || jq.trim(requestData.issueAccountBatchNo) === "" || jq.trim(requestData.accountName) === "") {
                         jq().toastmessage('showErrorToast', "Check that all the required fields have been filled");
                         return false;
                     }
@@ -340,11 +340,11 @@
                         jq("#rtnsQuantity").addClass("loaderror");
                         jq().toastmessage('showErrorToast', 'Ensure you have entered the correct quantity')
                         return false;
-                    } else if (jq("#rtnsStage").val() == "0") {
+                    } else if (jq("#rtnsStage").val() === "0") {
                         jq("#rtnsStage").addClass("loaderror");
                         jq().toastmessage('showErrorToast', 'Ensure you have selected the VMM Stage')
                         return false;
-                    } else if (jq("#rtnsBatchNo").val() == "") {
+                    } else if (jq("#rtnsBatchNo").val() === "") {
                         jq("#rtnsBatchNo").addClass("loaderror");
                         jq().toastmessage('showErrorToast', 'Ensure you have selected a drug to view batches')
                         return false;
@@ -433,7 +433,7 @@
                         outsRemarks: jq("#outsRemarks").val()
                     }
 
-                    if (jq.trim(stockoutsData.outsName) == "" || jq.trim(stockoutsData.depletionDate) == "") {
+                    if (jq.trim(stockoutsData.outsName) === "" || jq.trim(stockoutsData.depletionDate) === "") {
                         jq().toastmessage('showErrorToast', "Check that the required fields have been filled");
                         return false;
                     }
@@ -473,7 +473,7 @@
                         outsRemarks: jq("#outsEditRemarks").val()
                     }
 
-                    if (jq.trim(stockoutsData.depletionDate) == "") {
+                    if (jq.trim(stockoutsData.depletionDate) === "") {
                         jq().toastmessage('showErrorToast', "Check to ensure that Date Depleted been filled");
                         return false;
                     }
@@ -516,8 +516,8 @@
                         equipementEnergySource: jq("#equipementEnergySource").val()
                     }
 
-                    if (jq.trim(equipmentData.equipementTypeName) == "" || jq.trim(equipmentData.equipementModel) == "" ||
-                            jq.trim(equipmentData.dateManufactured) == "" || jq.trim(equipmentData.equipementEnergySource) == "") {
+                    if (jq.trim(equipmentData.equipementTypeName) === "" || jq.trim(equipmentData.equipementModel) === "" ||
+                            jq.trim(equipmentData.dateManufactured) === "" || jq.trim(equipmentData.equipementEnergySource) === "") {
                         jq().toastmessage('showErrorToast', "Check that the required fields have been filled");
                         return false;
                     }

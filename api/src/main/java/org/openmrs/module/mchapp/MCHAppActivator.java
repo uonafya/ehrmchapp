@@ -15,10 +15,7 @@ package org.openmrs.module.mchapp;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.api.context.Context;
 import org.openmrs.module.ModuleActivator;
-import org.openmrs.module.metadatadeploy.api.MetadataDeployService;
-import org.openmrs.module.metadatadeploy.bundle.MetadataBundle;
 
 /**
  * This class contains the logic that is run every time this module is either started or stopped.
