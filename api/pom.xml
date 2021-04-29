@@ -50,12 +50,10 @@
         <dependency>
             <groupId>org.openmrs.module</groupId>
             <artifactId>metadatadeploy-api</artifactId>
-            <version>${metadatadeployVersion}</version>
         </dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>hospitalcore-api</artifactId>
-            <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.openmrs.module</groupId>

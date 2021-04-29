@@ -9,7 +9,7 @@ import org.openmrs.ui.framework.UiUtils;
 import java.util.List;
 
 /**
- * Created by Dennys Henry on 9/4/2016.
+ * Created by HealthIT
  */
 public class MchStores {
 	

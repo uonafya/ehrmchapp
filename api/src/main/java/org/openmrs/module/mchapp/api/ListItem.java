@@ -4,7 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * @author Stanslaus Odhiambo Created on 5/26/2016.
+ * @author HealthIT
  */
 public class ListItem {
 	
