@@ -9,7 +9,7 @@ import org.openmrs.util.Format;
 import java.util.Date;
 
 /**
- *
+ * @author HealthIT
  */
 public class VisitListItem {
 	

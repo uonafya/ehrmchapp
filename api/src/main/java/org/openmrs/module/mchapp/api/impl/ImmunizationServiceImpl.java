@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Stanslaus Odhiambo Created on 8/25/2016.
+ * @author HealthIT
  */
 public class ImmunizationServiceImpl extends BaseOpenmrsService implements ImmunizationService {
 	
