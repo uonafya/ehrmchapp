@@ -1,6 +1,6 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "MCH Stockout Details"])
-    ui.includeJavascript("billingui", "moment.js")
+    ui.includeJavascript("ehrcashier", "moment.js")
 
     ui.includeCss("uicommons", "datatables/dataTables_jui.css")
     ui.includeJavascript("patientqueueapp", "jquery.dataTables.min.js")

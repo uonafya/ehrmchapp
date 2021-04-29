@@ -2,7 +2,7 @@ package org.openmrs.module.mchapp.page.controller;
 
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ehrinventory.InventoryService;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.ui.framework.SimpleObject;
 import org.openmrs.ui.framework.UiUtils;

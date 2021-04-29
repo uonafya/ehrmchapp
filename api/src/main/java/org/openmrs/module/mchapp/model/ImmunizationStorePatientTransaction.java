@@ -3,8 +3,6 @@ package org.openmrs.module.mchapp.model;
 import org.openmrs.Patient;
 import org.openmrs.PatientState;
 import org.openmrs.Person;
-import org.openmrs.module.hospitalcore.model.ImmunizationStoreDrug;
-
 import java.io.Serializable;
 import java.util.Date;
 
