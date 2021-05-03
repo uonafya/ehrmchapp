@@ -45,7 +45,6 @@
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>hospitalcore-api</artifactId>
-			<version>${hospitalcorVersion}</version>
 		</dependency>
 
 		<!-- End OpenMRS modules -->
