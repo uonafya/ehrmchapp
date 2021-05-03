@@ -6,15 +6,14 @@ import org.hibernate.criterion.MatchMode;
 import org.openmrs.Patient;
 import org.openmrs.api.db.DAOException;
 import org.openmrs.api.impl.BaseOpenmrsService;
-import org.openmrs.module.hospitalcore.model.InventoryDrug;
 import org.openmrs.module.mchapp.api.ImmunizationService;
 import org.openmrs.module.mchapp.db.ImmunizationCommoditiesDAO;
+import org.openmrs.module.mchapp.model.ImmunizationEquipment;
+import org.openmrs.module.mchapp.model.ImmunizationStockout;
 import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
 import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
 import org.openmrs.module.mchapp.model.ImmunizationStorePatientTransaction;
 import org.openmrs.module.mchapp.model.ImmunizationStoreTransactionType;
-import org.openmrs.module.mchapp.model.ImmunizationEquipment;
-import org.openmrs.module.mchapp.model.ImmunizationStockout;
 import org.openmrs.module.mchapp.model.TransactionType;
 
 import java.util.Date;
@@ -173,11 +172,6 @@ public class ImmunizationServiceImpl extends BaseOpenmrsService implements Immun
 	}
 	
 	@Override
-	public List<ImmunizationStockout> getImmunizationStockoutByDrug(InventoryDrug drug) {
-		return dao.getImmunizationStockoutByDrug(drug);
-	}
-	
-	@Override
 	public ImmunizationStockout getImmunizationStockoutById(int id) {
 		return dao.getImmunizationStockoutById(id);
 	}
@@ -222,10 +216,5 @@ public class ImmunizationServiceImpl extends BaseOpenmrsService implements Immun
 	@Override
 	public List<ImmunizationStockout> listImmunizationStockouts(Integer drugId, Boolean currentlyOpen) {
 		return dao.listImmunizationStockouts(drugId, currentlyOpen);
-	}
-	
-	@Override
-	public List<ImmunizationStoreDrug> getImmunizationStoreDrugsForDrug(InventoryDrug inventoryDrug) {
-		return dao.getImmunizationStoreDrugsForDrug(inventoryDrug);
 	}
 }
