@@ -13,9 +13,6 @@
 
     <activator>org.openmrs.module.mchapp.MCHAppActivator</activator>
 
-    The content of element type "module" must match "(id,name,version,package,author,description,activator,updateURL?,require_version?,require_database_version?,require_modules?,
-    library*,extension*,advice*,privilege*,globalProperty*,dwr?,servlet*,filter*,filter-mapping*,messages*,mappingFiles?)".
-
     <!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
     <!-- /Base Module Properties -->
 
