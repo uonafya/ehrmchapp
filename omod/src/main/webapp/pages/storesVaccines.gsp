@@ -1,10 +1,10 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "MCH Drug Transactions"])
     
-	ui.includeJavascript("billingui", "jq.print.js")
+	ui.includeJavascript("ehrcashier", "jq.print.js")
 	ui.includeJavascript("billingui", "moment.js")
-    ui.includeJavascript("patientqueueapp", "jquery.dataTables.min.js")
-	
+    ui.includeJavascript("ehrconfigs", "jquery.dataTables.min.js")
+    ui.includeCss("ehrconfigs", "referenceapplication.css")
     ui.includeCss("uicommons", "datatables/dataTables_jui.css")
 	ui.includeCss("mchapp", "views.css")	
 %>
@@ -52,7 +52,7 @@
 	<div class="example">
         <ul id="breadcrumbs">
             <li>
-                <a href="${ui.pageLink('referenceapplication', 'home')}">
+                <a href="${ui.pageLink('kenyaemr', 'userHome')}">
 					<i class="icon-home small"></i>
 				</a>
             </li>

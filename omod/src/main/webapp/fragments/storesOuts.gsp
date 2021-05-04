@@ -1,3 +1,4 @@
+<%ui.includeCss("ehrconfigs", "custom.css")%>
 <script>
 	var stockoutTable;
 	var stockoutTableObject;
