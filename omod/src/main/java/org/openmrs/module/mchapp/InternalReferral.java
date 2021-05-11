@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 
 /**
- * Created by qqnarf on 5/26/16.
+ *
  */
 public class InternalReferral {
 	

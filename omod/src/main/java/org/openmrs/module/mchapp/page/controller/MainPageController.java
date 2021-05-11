@@ -9,6 +9,7 @@ import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.hospitalcore.model.PatientSearch;
+import org.openmrs.module.kenyaui.annotation.AppPage;
 import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.ListItem;
 import org.openmrs.module.mchapp.api.MchService;
@@ -16,11 +17,13 @@ import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
-/**
- * Created by qqnarf on 4/27/16.
- */
+@AppPage("mchapp.stores")
 public class MainPageController {
 	
 	private static final int MAX_CWC_DURATION = 5;
