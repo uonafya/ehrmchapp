@@ -35,6 +35,6 @@ public class InternalReferral {
 		
 		opdPatientQueue.setReferralConcept(referralConcept);
 		opdPatientQueue.setSex(patient.getGender());
-		OpdPatientQueue opdPatient = queueService.saveOpdPatientQueue(opdPatientQueue);
+		queueService.saveOpdPatientQueue(opdPatientQueue);
 	}
 }
