@@ -17,7 +17,7 @@ public class InternalReferral {
 	@Transactional
 	public void sendToRefferedRoom(Patient patient, String refferedRoomConceptUuid) {
 		PatientQueueService queueService = Context.getService(PatientQueueService.class);
-		Concept referralConcept = Context.getConceptService().getConceptByUuid("6617a775-1204-43fe-9852-e252c978486c");
+		Concept referralConcept = Context.getConceptService().getConceptByUuid(refferedRoomConceptUuid);
 		OpdPatientQueue opdPatientQueue = new OpdPatientQueue();
 		opdPatientQueue.setUser(Context.getAuthenticatedUser());
 		opdPatientQueue.setPatient(patient);
@@ -35,6 +35,6 @@ public class InternalReferral {
 		
 		opdPatientQueue.setReferralConcept(referralConcept);
 		opdPatientQueue.setSex(patient.getGender());
-		OpdPatientQueue opdPatient = queueService.saveOpdPatientQueue(opdPatientQueue);
+		queueService.saveOpdPatientQueue(opdPatientQueue);
 	}
 }
