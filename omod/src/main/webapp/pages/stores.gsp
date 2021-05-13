@@ -5,7 +5,7 @@
     ui.includeCss("uicommons", "datatables/dataTables_jui.css")
     ui.includeJavascript("ehrconfigs", "emr.js")
     ui.includeCss("ehrconfigs", "referenceapplication.css")
-    ui.includeCss("registration", "onepcssgrid.css")
+    ui.includeCss("ehrconfigs", "onepcssgrid.css")
     ui.includeJavascript("ehrconfigs", "jquery.dataTables.min.js")
     ui.includeJavascript("ehrconfigs", "knockout-3.4.0.js")
     ui.includeJavascript("ehrconfigs", "jquery.simplemodal.1.4.4.min.js")
