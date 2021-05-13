@@ -13,9 +13,6 @@
 
     <activator>org.openmrs.module.mchapp.MCHAppActivator</activator>
 
-    <!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
-    <!-- /Base Module Properties -->
-
     <require_version>${openMRSVersion}</require_version>
     <require_modules>
         <require_module>org.openmrs.module.uicommons</require_module>

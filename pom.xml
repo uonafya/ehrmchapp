@@ -14,8 +14,6 @@
     <packaging>pom</packaging>
     <name>MCH App Module</name>
     <description>OpenMRS module to help track MCH visits</description>
-
-    <url>https://wiki.openmrs.org/x/FQ4z</url>
     <developers>
         <developer>
             <name>HealthIT</name>

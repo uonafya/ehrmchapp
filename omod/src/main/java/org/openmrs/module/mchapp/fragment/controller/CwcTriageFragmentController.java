@@ -71,7 +71,7 @@ public class CwcTriageFragmentController {
 						model.addAttribute("weightCategoryValue", wCat.getUuid());
 						break;
 					}
-					case 100126186: {
+					case 100126186: {//use 160463
 						Concept gStat = s.getValueCoded();
 						model.addAttribute("growthStatusValue", gStat.getUuid());
 						break;
