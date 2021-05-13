@@ -1,6 +1,7 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "MCH Stores:-Receipt Details"])
-    ui.includeJavascript("billingui", "moment.js")
+    ui.includeJavascript("ehrcashier", "moment.js")
+    ui.includeCss("ehrconfigs", "referenceapplication.css")
 
     ui.includeCss("uicommons", "datatables/dataTables_jui.css")
     ui.includeJavascript("patientqueueapp", "jquery.dataTables.min.js")
@@ -20,7 +21,7 @@
     <div class="example">
         <ul id="breadcrumbs">
             <li>
-                <a href="${ui.pageLink('referenceapplication', 'home')}">
+                <a href="${ui.pageLink('kenyaemr', 'userHome')}">
                     <i class="icon-home small"></i></a>
             </li>
 
