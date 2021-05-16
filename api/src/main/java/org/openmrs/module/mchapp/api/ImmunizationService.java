@@ -4,8 +4,13 @@ import org.hibernate.criterion.MatchMode;
 import org.openmrs.Patient;
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.api.db.DAOException;
-import org.openmrs.module.hospitalcore.model.InventoryDrug;
-import org.openmrs.module.mchapp.model.*;
+import org.openmrs.module.mchapp.model.ImmunizationEquipment;
+import org.openmrs.module.mchapp.model.ImmunizationStockout;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrug;
+import org.openmrs.module.mchapp.model.ImmunizationStoreDrugTransactionDetail;
+import org.openmrs.module.mchapp.model.ImmunizationStorePatientTransaction;
+import org.openmrs.module.mchapp.model.ImmunizationStoreTransactionType;
+import org.openmrs.module.mchapp.model.TransactionType;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -78,7 +83,6 @@ public interface ImmunizationService extends OpenmrsService {
 	List<ImmunizationEquipment> listImmunizationEquipment(String equipmentName, String equipmentType);
 	
 	/*  ImmunizationStockout    */
-	List<ImmunizationStockout> getImmunizationStockoutByDrug(InventoryDrug drug);
 	
 	ImmunizationStockout getImmunizationStockoutById(int id);
 	
@@ -99,6 +103,4 @@ public interface ImmunizationService extends OpenmrsService {
 	List<ImmunizationStockout> listImmunizationStockouts(String outsNames, Date fromDate, Date toDate);
 	
 	List<ImmunizationStockout> listImmunizationStockouts(Integer drugId, Boolean currentlyOpen);
-	
-	List<ImmunizationStoreDrug> getImmunizationStoreDrugsForDrug(InventoryDrug inventoryDrug);
 }
