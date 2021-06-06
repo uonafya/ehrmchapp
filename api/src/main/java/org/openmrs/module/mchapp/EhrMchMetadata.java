@@ -34,7 +34,7 @@ public class EhrMchMetadata {
 		
 		public static final String PNC_CERVICAL_SCREENING_METHOD = "163589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String PNC_CERVICAL_SCREENING_RESULT = "23bee3ab-f241-4e56-8d92-1116dc6b516a";
+		public static final String PNC_CERVICAL_SCREENING_RESULT = "23bee3ab-f241-4e56-8d92-1116dc6b516a"; //not found
 		
 		public static final String PNC_FAMILY_PLANNING = "374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
@@ -52,7 +52,7 @@ public class EhrMchMetadata {
 		
 		public static final String CWC_BREASTFEEDING_EXCLUSSIVE = "5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
-		public static final String CWC_BREASTFEEDING_FOR_INFECTED = "1151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";// to be created(100126199)
+		public static final String CWC_BREASTFEEDING_FOR_INFECTED = "1151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String CWC_VITAMIN_A_SUPPLEMENTATION = "c1346a48-9777-428f-a908-e8bff24e4e37";// to be created(100126235)
 		
@@ -112,22 +112,22 @@ public class EhrMchMetadata {
 	
 	public static final class _MchEncounterType {
 		
-		public static final String ANC_ENCOUNTER_TYPE = "64132ecd-3a0f-41b8-b743-78c26af2f4b9"; //HOLDER FOR 100126225
+		public static final String ANC_ENCOUNTER_TYPE = "ae378f6e-f292-11ea-8ef8-0bb1ae4b7f42";
 		
-		public static final String ANC_TRIAGE_ENCOUNTER_TYPE = "159637AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";//holder for 2540f75d-7af5-472e-92d7-546d1add0759
+		public static final String ANC_TRIAGE_ENCOUNTER_TYPE = "25dbb7d0-fac6-11ea-94e8-0bd56324f4b5";
 		
-		public static final String PNC_ENCOUNTER_TYPE = "c87a3883-90f9-43a1-a972-7f615ed44e03";
+		public static final String PNC_ENCOUNTER_TYPE = "cbe0212a-f292-11ea-affa-2b398f67bbb4";
 		
-		public static final String PNC_TRIAGE_ENCOUNTER_TYPE = "91a5f5c0-858d-496e-a83e-e826af5205eb";
+		public static final String PNC_TRIAGE_ENCOUNTER_TYPE = "fcaec384-fac5-11ea-8aeb-fffc453fcc77";
 		
-		public static final String CWC_ENCOUNTER_TYPE = "3aa0a23d-6f0e-43b3-ae8a-912ac0bbf129";
+		public static final String CWC_ENCOUNTER_TYPE = "09073c56-fac6-11ea-87aa-bfe01fd142fd";
 		
-		public static final String CWC_TRIAGE_ENCOUNTER_TYPE = "e341b3ba-186c-4638-a5d1-32a7a373b62a";
+		public static final String CWC_TRIAGE_ENCOUNTER_TYPE = "150932f2-fac6-11ea-b158-4b1b80bfe51c";
 	}
 	
 	public static final class _MchProgram {
 		
-		public static final String ANC_PROGRAM = "e8751e5c-fbda-11ea-9bba-ff7e8cea17d3"; //160446
+		public static final String ANC_PROGRAM = "e8751e5c-fbda-11ea-9bba-ff7e8cea17d3";
 		
 		public static final String PNC_PROGRAM = "23edfbca-fbdb-11ea-a675-17377ca3079e"; //1623
 		
@@ -142,7 +142,7 @@ public class EhrMchMetadata {
 		//		public static final Integer RETURN_CWC_CLINIC_VISIT = 5;
 		
 		/*CWC PROGRAM, WORKFLOW AND STATE CONCEPTS*/
-		public static final String CWC_PROGRAM = "645d7e4c-fbdb-11ea-911a-5fe00fc87a47"; //163110
+		public static final String CWC_PROGRAM = "645d7e4c-fbdb-11ea-911a-5fe00fc87a47"; //MCWC
 		
 		public static final String PNC_DELIVERY_MODES = "6ac1fd9c-e696-4f46-9ec3-5be0b06e07dd"; //165410
 		
