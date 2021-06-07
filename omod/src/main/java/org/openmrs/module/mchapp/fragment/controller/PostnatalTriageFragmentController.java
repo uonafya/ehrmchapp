@@ -89,6 +89,7 @@ public class PostnatalTriageFragmentController {
 		PatientQueueService queueService = Context.getService(PatientQueueService.class);
 		TriagePatientQueue queue = queueService.getTriagePatientQueueById(queueId);
 		try {
+			System.out.println("###################################PNC TRIAGE ####################");
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, null);
 			List<Object> previousVisitsByPatient = Context.getService(MchService.class).findVisitsByPatient(patient, true,
 			    true, patientEnrollmentDate);
