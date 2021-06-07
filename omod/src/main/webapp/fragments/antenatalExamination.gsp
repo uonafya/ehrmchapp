@@ -15,9 +15,9 @@
     var drugOrders = new DisplayDrugOrders();
     var selectedInvestigationIds = [];
     var selectedDiagnosisIds = [];
-    var investigationQuestionUuid = "1ad6f4a5-13fd-47fc-a975-f5a1aa61f757";
-    var provisionalDiagnosisQuestionUuid = "b8bc4c9f-7ccb-4435-bc4e-646d4cf83f0a";
-    var finalDiagnosisQuestionUuid = "7033ef37-461c-4953-a757-34722b6d9e38"
+    var investigationQuestionUuid = "0179f241-8c1d-47c1-8128-841f6508e251";
+    var provisionalDiagnosisQuestionUuid = "160249AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    var finalDiagnosisQuestionUuid = "160250AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     var diagnosisQuestionUuid = "";
     var NavigatorController;
 	
@@ -120,11 +120,11 @@
 			}
         });
 
-        jq('input[type=radio][name="concept.fb5a5471-e912-4288-8c25-750f7f88281f"]').change(function() {
-            if (this.value == '4536f271-5430-4345-b5f7-37ca4cfe1553') {
+        jq('input[type=radio][name="concept.162522AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]').change(function() {
+            if (this.value == '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".infant-feeding").show();
             }
-            else if (this.value == '606720bb-4a7a-4c4c-b3b5-9a8e910758c9') {
+            else if (this.value == '1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".infant-feeding").hide();
                 jq(".decision-feeding").hide();
             }
