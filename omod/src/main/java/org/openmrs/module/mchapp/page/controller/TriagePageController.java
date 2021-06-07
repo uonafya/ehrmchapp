@@ -7,6 +7,7 @@ import org.openmrs.Program;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.model.PatientSearch;
+import org.openmrs.module.kenyaui.annotation.AppPage;
 import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.ui.framework.page.PageModel;
@@ -16,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+@AppPage("mchapp.stores")
 public class TriagePageController {
 	
 	private static final int MAX_CWC_DURATION = 5;

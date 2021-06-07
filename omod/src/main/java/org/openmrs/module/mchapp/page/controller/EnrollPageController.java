@@ -4,11 +4,13 @@ import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.model.PatientSearch;
+import org.openmrs.module.kenyaui.annotation.AppPage;
 import org.openmrs.ui.framework.page.PageModel;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
+@AppPage("mchapp.stores")
 public class EnrollPageController {
 	
 	public void get(@RequestParam("patientId") Patient patient, @RequestParam(value = "queueId") Integer queueId,
