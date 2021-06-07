@@ -15,9 +15,9 @@
     var drugOrders = new DisplayDrugOrders();
     var selectedInvestigationIds = [];
     var selectedDiagnosisIds = [];
-    var investigationQuestionUuid = "1ad6f4a5-13fd-47fc-a975-f5a1aa61f757";
-    var provisionalDiagnosisQuestionUuid = "b8bc4c9f-7ccb-4435-bc4e-646d4cf83f0a";
-    var finalDiagnosisQuestionUuid = "7033ef37-461c-4953-a757-34722b6d9e38"
+    var investigationQuestionUuid = "0179f241-8c1d-47c1-8128-841f6508e251";
+    var provisionalDiagnosisQuestionUuid = "160249AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    var finalDiagnosisQuestionUuid = "160250AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     var diagnosisQuestionUuid = "";
     var NavigatorController;
 	
@@ -120,21 +120,21 @@
 			}
         });
 
-        jq('input[type=radio][name="concept.fb5a5471-e912-4288-8c25-750f7f88281f"]').change(function() {
-            if (this.value == '4536f271-5430-4345-b5f7-37ca4cfe1553') {
+        jq('input[type=radio][name="concept.162522AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]').change(function() {
+            if (this.value == '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".infant-feeding").show();
             }
-            else if (this.value == '606720bb-4a7a-4c4c-b3b5-9a8e910758c9') {
+            else if (this.value == '1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".infant-feeding").hide();
                 jq(".decision-feeding").hide();
             }
         });
 		
-        jq('input[type=radio][name="concept.8a3c420e-b4ff-4710-81fd-90c7bfa6de72"]').change(function() {
-            if (this.value == '4536f271-5430-4345-b5f7-37ca4cfe1553') {
+        jq('input[type=radio][name="concept.0b0f90ca-c1c9-4a1a-a0bd-35f5ac9c4957"]').change(function() {
+            if (this.value == '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".decision-feeding").show();
             }
-            else if (this.value == '606720bb-4a7a-4c4c-b3b5-9a8e910758c9') {
+            else if (this.value == '1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') {
                 jq(".decision-feeding").hide();
             }
         });
@@ -668,7 +668,7 @@
 			jq('#conditions-info-set').val('SET');
 			var output = '';
 
-			if (jq('input[value="a8390549-394c-44c7-a0c3-404c1799b1b9"]:checked').length > 0) {
+			if (jq('input[value="117399AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]:checked').length > 0) {
 				output += 'Hypertension<br/>';
 			}
 			
@@ -676,15 +676,15 @@
 				output += 'Diabetes<br/>';
 			}
 			
-			if (jq('input[value="4e896673-d822-458e-bbfe-604747e0afe8"]:checked').length > 0) {
+			if (jq('input[value="155AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]:checked').length > 0) {
 				output += 'Epilepsy<br/>';
 			}
 			
-			if (jq('input[value="4c9b4d7d-7cb0-4d49-a833-2a13490b4632"]:checked').length > 0) {
+			if (jq('input[value="b39992a0-7d5b-4b72-b551-9e0970ae49fa"]:checked').length > 0) {
 				output += 'STIs / RTI<br/>';
 			}
 			
-			if (jq('input[value="0731fc60-1c30-464b-93e9-e4adc8537e42"]:checked').length > 0) {
+			if (jq('input[value="134594AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]:checked').length > 0) {
 				output += 'Malaria in Pregnancy<br/>';
 			}
 						
@@ -701,37 +701,37 @@
 			
 			var output = '';
 
-			if (!jq("input[name='concept.1406dbf3-05da-4264-9659-fb688cea5809']:checked").val()) {}
+			if (!jq("input[name='concept.86f816e4-d093-4e8e-93e3-be2a98c264ac']:checked").val()) {}
 			else {
-				output += 'Prior Known Status: ' + jq("input[name='concept.1406dbf3-05da-4264-9659-fb688cea5809']:checked").data('value') + '<br/>';
+				output += 'Prior Known Status: ' + jq("input[name='concept.86f816e4-d093-4e8e-93e3-be2a98c264ac']:checked").data('value') + '<br/>';
 			}
 			
-			if (!jq("input[name='concept.0a24f03e-9133-4401-b683-76c45e166912']:checked").val()) {}
+			if (!jq("input[name='concept.1169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']:checked").val()) {}
 			else {
-				output += 'Current Status: ' + jq("input[name='concept.0a24f03e-9133-4401-b683-76c45e166912']:checked").data('value') + '<br/>';
+				output += 'Current Status: ' + jq("input[name='concept.1169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']:checked").data('value') + '<br/>';
 			}
 			
-			if (!jq("input[name='concept.27b96311-bc00-4839-b7c9-31401b44cd3a']:checked").val()) {}
+			if (!jq("input[name='concept.1c953217-5acd-4cc7-9bec-d38b2b6ea3ac']:checked").val()) {}
 			else {
-				output += 'Couple Counselled: ' + jq("input[name='concept.27b96311-bc00-4839-b7c9-31401b44cd3a']:checked").data('value') + '<br/>';
+				output += 'Couple Counselled: ' + jq("input[name='concept.1c953217-5acd-4cc7-9bec-d38b2b6ea3ac']:checked").data('value') + '<br/>';
 			}
 			
-			if (!jq("input[name='concept.df68a879-70c4-40d5-becc-a2679b174036']:checked").val()) {}
+			if (!jq("input[name='concept.159427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']:checked").val()) {}
 			else {
-				output += 'Patner Results: ' + jq("input[name='concept.df68a879-70c4-40d5-becc-a2679b174036']:checked").data('value') + '<br/>';
+				output += 'Patner Results: ' + jq("input[name='concept.159427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']:checked").data('value') + '<br/>';
 			}
 			
-			if (!jq("input[name='concept.9e93ea80-3d6d-4e60-98cf-d29e53b4703c']:checked").val()) {}
+			if (!jq("input[name='concept.0cd753c1-ba40-4625-9d05-449a77d26693']:checked").val()) {}
 			else {
-				output += 'Screening Through : ' + jq("input[name='concept.9e93ea80-3d6d-4e60-98cf-d29e53b4703c']:checked").data('value') + '<br/>';
+				output += 'Screening Through : ' + jq("input[name='concept.0cd753c1-ba40-4625-9d05-449a77d26693']:checked").data('value') + '<br/>';
 			}
 			
-			if (!jq("input[name='concept.26a924e0-1648-4112-959f-d47647021dc9']:checked").val()) {}
+			if (!jq("input[name='concept.f2b2dc3b-faf4-4069-a0df-044b9034ac59']:checked").val()) {}
 			else {
-				output += 'Screening for TB : ' + jq("input[name='concept.26a924e0-1648-4112-959f-d47647021dc9']:checked").data('value') + '<br/>';
+				output += 'Screening for TB : ' + jq("input[name='concept.f2b2dc3b-faf4-4069-a0df-044b9034ac59']:checked").data('value') + '<br/>';
 			}
 			
-			if (jq("input[name='concept.a2a1c160-9ee2-4df5-8e48-58a50ebe8147']:checked").val() == '4536f271-5430-4345-b5f7-37ca4cfe1553'){
+			if (jq("input[name='concept.f6896417-de10-471f-aa1e-132a4446b905']:checked").val() == '1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'){
 				output += 'Patient Started on ART<br/>';
 			}
 			
