@@ -97,7 +97,7 @@
 			<li class="menu-item selected" visitid="54">
 				<span class="menu-date">
 					<i class="icon-time"></i>
-					<span id="vistdate">23 May 2016<br> &nbsp; &nbsp; (Active since 04:10 PM)</span>
+					<span id="vistdate">${patientProgram?patientProgram.dateEnrolled:"--"}"<br> &nbsp; &nbsp; (Active since 04:10 PM)</span>
 				</span>
 				
 				<div class="patient-profile">
@@ -144,7 +144,7 @@
 					</div>
 					<div>
 						<label for="bloodPressure">Blood Pressure</label>
-						<input type="text" id="systolic" name="concept.6aa7eab2-138a-4041-a87f-00d9421492bc" class="number numeric-range" value="${systolic}" />
+						<input type="text" id="systolic" name="concept.5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="${systolic}" />
 						<span class="append-to-value">Systolic</span>
 						<span id="12462" class="field-error" style="display: none"></span>
 					</div>
@@ -160,7 +160,7 @@
 					<div>
 						<label></label>
 						<label style="padding-left: 0px; width: auto; cursor: pointer;">
-							<input type="checkbox" name="send_for_examination" value="11303942-75cd-442a-aead-ae1d2ea9b3eb" >
+							<input type="checkbox" name="send_for_examination" value="1acb3707-9e03-40e3-b157-ce28451c3fd0" >
 							Tick to Send to Examination Room
 						</label>
 					</div>
@@ -196,12 +196,12 @@
 		
 			<div>
 				<label for="deliveryPlace">Place of Delivery</label>
-				<input type="text" name="concept.f131507e-6acd-4bbe-afb5-4e39503e5a00" >
+				<input type="text" name="1572AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" >
 			</div>
 			
 			<div>
 				<label for="deliveryMode">Mode of Delivery</label>
-				<select id="deliveryMode" name="concept.a875ae0b-893c-47f8-9ebe-f721c8d0b130">
+				<select id="deliveryMode" name="concept.5630AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 					<option value="0">Select Option</option>					
 					<% deliveryMode.each { modes -> %>
  						<option value="${modes.uuid}">${modes.label}</option>
@@ -210,7 +210,7 @@
 			</div>
 			<div>
 				<label for="babyState">State of Baby</label>
-				<input type="text" name="concept.5ddb1a3e-0e88-426c-939a-abf4776b024a" >
+				<input type="text" name="concept.8f3ed313-e2ea-48df-b211-69bb3f232b20" >
 			</div>
 		</div>	  
 	</div>
