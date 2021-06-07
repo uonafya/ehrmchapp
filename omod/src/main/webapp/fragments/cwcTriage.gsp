@@ -157,19 +157,19 @@
                     </div>
 
                     <div>
-                        <label for="concept.b7112b6c-de10-42ee-b54d-2e1be98cd2d6">M.U.A.C</label>
+                        <label for="concept.1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">M.U.A.C</label>
                         <input class="muacs number numeric-range focused"
                                type="text"
                                max="999" min="0" maxlength="7" value="${muac}"
-                               name="concept.b7112b6c-de10-42ee-b54d-2e1be98cd2d6"
-                               id="concept.b7112b6c-de10-42ee-b54d-2e1be98cd2d6">
+                               name="concept.1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                               id="concept.1343AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                         <span class="append-to-value">cm</span>
                         <span id="12518" class="field-error" style="display: none"></span>
                     </div>
 
                     <div>
                         <label for="growthMonitor">Growth Status</label>
-                        <select id="growthMonitor" name="concept.562a6c3e-519b-4a50-81be-76ca67b5d5ec">
+                        <select id="growthMonitor" name="concept.fb577873-ea93-49f9-a3e7-82ae5035bbd2">
                             <option value="0">Select Category</option>
                             <% growthCategories.each { category -> %>
                             <option value="${category.uuid}">${category.label}</option>
@@ -181,13 +181,13 @@
                     <div>
                         <label></label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="11303942-75cd-442a-aead-ae1d2ea9b3eb">
+                            <input type="radio" name="send_for_examination" value="1acb3707-9e03-40e3-b157-ce28451c3fd0">
                             Send to Examination Room
                         </label><br/>
 						
                         <label></label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="4e87c99b-8451-4789-91d8-2aa33fe1e5f6">
+                            <input type="radio" name="send_for_examination" value="f00b4314-cec5-4ce7-b0cd-c43e8deea664">
                             Send to Immunization Room
                         </label>
                     </div>

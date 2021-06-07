@@ -150,7 +150,7 @@ public class EhrMchMetadata {
 		public static final String MCH_WEIGHT_CATEGORIES = "1854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		//temporary
-		public static final String MCH_GROWTH_MONITOR = "1853AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		public static final String MCH_GROWTH_MONITOR = "fb577873-ea93-49f9-a3e7-82ae5035bbd2";
 	}
 	
 	public static int getFaclityVisitTypeId() {
