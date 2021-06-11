@@ -12,6 +12,7 @@ import org.openmrs.ui.framework.fragment.FragmentModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.openmrs.module.kenyaemr.api.KenyaEmrService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
@@ -52,7 +53,7 @@ public class ProgramSelectionFragmentController {
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(
 			    form,
 			    EhrMchMetadata._MchEncounterType.ANC_TRIAGE_ENCOUNTER_TYPE,
-			    session.getSessionLocation(),
+			    Context.getService(KenyaEmrService.class).getDefaultLocation(),
 			    Context.getVisitService().getVisitTypeByUuid(EhrMchMetadata._VistTypes.INITIAL_MCH_CLINIC_VISIT)
 			            .getVisitTypeId());
 			
@@ -75,7 +76,8 @@ public class ProgramSelectionFragmentController {
 			dateEnrolled = dateFormatter.parse(dateEnrolledAsString);
 			mchService.enrollInPNC(patient, dateEnrolled);
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(),
+			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE,
+			    Context.getService(KenyaEmrService.class).getDefaultLocation(),
 			    EhrMchMetadata.getInitialMCHClinicVisitTypeId());
 			
 			return SimpleObject.create("status", "success", "message", patient + " has been enrolled into PNC");

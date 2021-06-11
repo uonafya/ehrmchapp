@@ -13,6 +13,7 @@ public class EhrMchMetadata {
 		public static final String LAST_MENSTRUAL_PERIOD = "1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 	}
 	
+	//reached here for concept uuid confirmation
 	public static final class _VistTypes {
 		
 		public static final String FACILITY_VISIT = "66a4ef36-fac4-11ea-bcbf-375d20d55603"; //aligned
@@ -144,12 +145,12 @@ public class EhrMchMetadata {
 		/*CWC PROGRAM, WORKFLOW AND STATE CONCEPTS*/
 		public static final String CWC_PROGRAM = "645d7e4c-fbdb-11ea-911a-5fe00fc87a47"; //MCWC
 		
-		public static final String PNC_DELIVERY_MODES = "6ac1fd9c-e696-4f46-9ec3-5be0b06e07dd"; //165410
+		public static final String PNC_DELIVERY_MODES = "5630AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		public static final String MCH_WEIGHT_CATEGORIES = "1854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		
 		//temporary
-		public static final String MCH_GROWTH_MONITOR = "1853AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+		public static final String MCH_GROWTH_MONITOR = "fb577873-ea93-49f9-a3e7-82ae5035bbd2";
 	}
 	
 	public static int getFaclityVisitTypeId() {

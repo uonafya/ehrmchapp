@@ -15,11 +15,11 @@ import java.util.List;
 
 public class SendForExaminationParser {
 	
-	private static final String TRIAGE_ROOM_CONCEPT_UUID = "7f5cd7ad-ff69-4d60-b70c-799a98b046ef";
+	private static final String TRIAGE_ROOM_CONCEPT_UUID = "3362c0d1-75c5-495c-939d-3163a1e77791";
 	
-	private static final String EXAM_ROOM_CONCEPT_UUID = "11303942-75cd-442a-aead-ae1d2ea9b3eb";
+	private static final String EXAM_ROOM_CONCEPT_UUID = "1acb3707-9e03-40e3-b157-ce28451c3fd0";
 	
-	private static final String IMMUNIZATION_ROOM_CONCEPT_UUID = "4e87c99b-8451-4789-91d8-2aa33fe1e5f6";
+	private static final String IMMUNIZATION_ROOM_CONCEPT_UUID = "f00b4314-cec5-4ce7-b0cd-c43e8deea664";
 	
 	public static OpdPatientQueue parse(String referParamKey, String[] referParamValue, Patient patient, String visitStatus) {
 		
