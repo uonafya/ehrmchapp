@@ -1,5 +1,11 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "Mother Child Health"])
+	ui.includeJavascript("ehrcashier", "moment.js")
+	ui.includeCss("uicommons", "datatables/dataTables_jui.css")
+	ui.includeCss("coreapps", "patientsearch/patientSearchWidget.css")
+	ui.includeCss("ehrconfigs","referenceapplication.css")
+	ui.includeJavascript("patientqueueapp", "jquery.dataTables.min.js")
+	ui.includeJavascript("patientqueueapp", "queue.js")
 %>
 <script type="text/javascript">
     var successUrl = "${ui.pageLink('mchapp','main',[patientId: patient, queueId: queueId])}";
