@@ -46,7 +46,7 @@
 				jq().toastmessage('showErrorToast', 'Please select the mode of delivery.');
 				return false;
 			}
-			
+
 			var data = jq("form#pnc-triage-form").serialize();
 
 			jq.post(
@@ -99,9 +99,7 @@
 					<i class="icon-time"></i>
 					<span id="vistdate">${patientProgram?patientProgram.dateEnrolled:"--"}"<br> &nbsp; &nbsp; (Active since 04:10 PM)</span>
 				</span>
-				
 				<div class="patient-profile">
-				
 				</div>				
 				
 				<span class="arrow-border"></span>

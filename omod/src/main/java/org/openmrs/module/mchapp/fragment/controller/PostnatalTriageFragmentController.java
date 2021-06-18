@@ -6,6 +6,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
+import org.openmrs.module.kenyaemr.api.KenyaEmrService;
 import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
@@ -99,7 +100,8 @@ public class PostnatalTriageFragmentController {
 				visitTypeId = EhrMchMetadata.getReturnPncClinicVisitTypeId();
 			}
 			Encounter encounter = Context.getService(MchService.class).saveMchEncounter(form,
-			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE, session.getSessionLocation(), visitTypeId);
+			    EhrMchMetadata._MchEncounterType.PNC_TRIAGE_ENCOUNTER_TYPE,
+			    Context.getService(KenyaEmrService.class).getDefaultLocation(), visitTypeId);
 			if (request.getParameter("send_for_examination") != null) {
 				String visitStatus = queue.getVisitStatus();
 				SendForExaminationParser.parse("send_for_examination", request.getParameterValues("send_for_examination"),
