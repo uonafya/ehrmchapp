@@ -45,7 +45,7 @@
         <ehrconfigsVersion>1.0.1</ehrconfigsVersion>
         <hospitalcorVersion>1.0.0</hospitalcorVersion>
         <metadatadeployVersion>1.3</metadatadeployVersion>
-        <patientdashboardappVersion>1.0.0-SNAPSHOT</patientdashboardappVersion>
+        <patientdashboardappVersion>1.0.1</patientdashboardappVersion>
         <ehrinventoryVersion>1.0.0</ehrinventoryVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
