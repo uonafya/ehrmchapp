@@ -1,21 +1,23 @@
 <%
-	ui.includeJavascript("billingui", "moment.js")
+	ui.includeJavascript("ehrcashier", "moment.js")
 %>
 
 <script>
+	jq(document).ready(function () {
+
 	var age 	= ${patient.age};
 	var gender 	= '${patient.gender}';
 	var select  = 'enrollInAnc';
-	
-	jq(function(){
+
+	jQuery(function(){
 		if (age <= 5){
 			jq("input[name='enrollIn'][value='enrollInCwc']").attr('checked', 'checked');
 			select = 'enrollInCwc';
 		}
-		
-		jq("input[name='enrollIn']").change(function(){
+
+		jQuery("input[name='enrollIn']").change(function(){
 			var programme = jq(this).val();
-			
+
 			if (age <= 5 && programme !== 'enrollInCwc'){
 				jq("input[name='enrollIn'][value='enrollInCwc']").attr('checked', 'checked');
 				jq().toastmessage('showErrorToast', 'This patient can only be registered for CWC');
@@ -26,42 +28,46 @@
 				jq().toastmessage('showErrorToast', 'This programme is only valid for children upto 5yrs');
 				return false;
 			}
-			
+
 			select = programme;
 		});
-		
-		jq('.confirm').click(function(){
-			if (!jq("input[name='enrollIn']:checked").val()) {
-				jq().toastmessage('showErrorToast', 'No Programme has been selected');
-			}
 
-			var programme = jq("input[name='enrollIn']:checked").val();	
-			
-			if (age <= 5 && programme !== 'enrollInCwc'){				
-				jq().toastmessage('showErrorToast', 'This programme is only valid for children upto 5yrs');
-				return false;
-			}
-			else if (age > 5 && gender =='M'){
-				jq().toastmessage('showErrorToast', 'This programme is only valid for Women or Children upto 5yrs');
-				return false;
-			}			
-			
-			if ('${source?source:""}' == 'clinic' && programme != 'enrollInCwc'){
-				if (programme == 'enrollInAnc'){
-					jq('#ancDateEnrolled').val(jq('#date-enrolled-field').val());
-					enrollAncDialog.show();
-				} else {
-					jq('#pncDateEnrolled').val(jq('#date-enrolled-field').val());
-					enrollPncDialog.show();
+			jQuery('.confirm').click(function () {
+				if (!jq("input[name='enrollIn']:checked").val()) {
+					jq().toastmessage('showErrorToast', 'No Programme has been selected');
 				}
-			}
-			else{
-				handleEnrollInProgram("${ui.actionLink('mchapp', 'programSelection', '" + programme + "')}",
-					successUrl
-				);
-			}
-		});
-		
+
+				var programme = jq("input[name='enrollIn']:checked").val();
+
+				if (age <= 5 && programme !== 'enrollInCwc') {
+					jq().toastmessage('showErrorToast', 'This programme is only valid for children upto 5yrs');
+					return false;
+				} else if (age > 5 && gender == 'M') {
+					jq().toastmessage('showErrorToast', 'This programme is only valid for Women or Children upto 5yrs');
+					return false;
+				}
+
+				if ('${source?source:""}' == 'clinic' && programme != 'enrollInCwc') {
+					if (programme == 'enrollInAnc') {
+						jq('#ancDateEnrolled').val(jq('#date-enrolled-field').val());
+						//This will show the Dialog
+						jq("#enrollAncDialog").show();
+						//enrollAncDialog.show();
+
+					} else {
+						jq('#pncDateEnrolled').val(jq('#date-enrolled-field').val());
+						// This will show the Dialog
+						jq("#enrollPncDialog").show();
+						//enrollPncDialog.show();
+					}
+				} else {
+					handleEnrollInProgram("${ui.actionLink('mchapp', 'programSelection', '" + programme + "')}",
+							successUrl
+					);
+				}
+			});
+
+
 		var handleEnrollInProgram = function (postUrl, successUrl) {
 			jq.post(
 				postUrl,
@@ -85,7 +91,7 @@
 				//display error message
 			});
 		};
-		
+
 		var enrollAncDialog = emr.setupConfirmationDialog({
             dialogOpts: {
                 overlayClose: false,
@@ -102,14 +108,14 @@
 						gestation	: jq('#gestation').val(),
 						visitCount	: jq('#visitNumber').val()
 					};
-					
+
 					if (requestData.parity == '' || requestData.gravida == '' || requestData.lmp == '' || requestData.edd == '' || requestData.gestation == '' || requestData.visitCount == ''){
 						jq().toastmessage('showErrorToast', 'Ensure all fields have been properly filled');
 						return false;
 					}
-					
-					var data = jq("form#enrollAncDialog").serialize();				
-					
+
+					var data = jq("form#enrollAncDialog").serialize();
+
 					jq.post('${ui.actionLink("mchapp", "programSelection", "enrollInAnc")}',
 						data,
 						null,
@@ -124,11 +130,11 @@
 					}).fail(function(){
 						//display error message
 					});
-					
-                    
-					
-					
-					
+
+
+
+
+
                     enrollAncDialog.close();
                 },
                 cancel: function () {
@@ -136,7 +142,7 @@
                 }
             }
         });
-		
+
 		var enrollPncDialog = emr.setupConfirmationDialog({
             dialogOpts: {
                 overlayClose: false,
@@ -149,14 +155,14 @@
 						deliveryMode: jq('#deliveryMode').val(),
 						deliveryDate: jq('#5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-field').val(),
 					};
-					
+
 					if (requestData.deliveryMode == '' || requestData.deliveryDate == ''){
 						jq().toastmessage('showErrorToast', 'Ensure that Mode of Delivery and Delivery Date have been filled properly');
 						return false;
 					}
-					
-					var data = jq("form#enrollPncDialog").serialize();				
-					
+
+					var data = jq("form#enrollPncDialog").serialize();
+
 					jq.post('${ui.actionLink("mchapp", "programSelection", "enrollInPnc")}',
 						data,
 						null,
@@ -171,11 +177,11 @@
 					}).fail(function(){
 						//display error message
 					});
-					
-                    
-					
-					
-					
+
+
+
+
+
                     enrollAncDialog.close();
                 },
                 cancel: function () {
@@ -183,7 +189,9 @@
                 }
             }
         });
+	 });
 	});
+
 </script>
 
 <style>
@@ -327,6 +335,19 @@
     .tasks-list-cb:checked ~ .tasks-list-desc {
         color: #34bf6e;
     }
+	#enrollAncDialog{
+	position: absolute;
+    top: 50%;
+    margin-left: -225px;
+    left: 50%;
+	}
+	#enrollPncDialog{
+	position: absolute;
+    top: 50%;
+    margin-left: -225px;
+    left: 50%;
+	}
+	
 </style>
 
 <div>
