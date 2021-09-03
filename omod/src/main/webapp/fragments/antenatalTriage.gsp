@@ -178,7 +178,7 @@
 					</div>
 					<div>
 						<label for="systolic">Blood Pressure</label>
-						<input type="text" id="systolic" name="concept.6aa7eab2-138a-4041-a87f-00d9421492bc" class="number numeric-range" value="${systolic}"  />
+						<input type="text" id="systolic" name="concept.5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="${systolic}"  />
 						<span class="append-to-value">Systolic</span>
 						<span id="12485" class="field-error" style="display: none"></span>
 					</div>

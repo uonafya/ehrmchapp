@@ -99,7 +99,10 @@ public class TriagePageController {
 		model.addAttribute("patientType", patientType);
 		model.addAttribute("patientSearch", patientSearch);
 		model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
-		model.addAttribute("patientCategory", patient.getAttribute(14));
+		model.addAttribute(
+		    "patientCategory",
+		    patient.getAttribute(Context.getPersonService().getPersonAttributeTypeByUuid(
+		        "09cd268a-f0f5-11ea-99a8-b3467ddbf779")));
 		//model.addAttribute("serviceOrderSize", serviceOrderList.size());
 		model.addAttribute("patientId", patient.getPatientId());
 		model.addAttribute("date", new Date());

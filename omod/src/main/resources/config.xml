@@ -40,10 +40,10 @@
 
 
     <!--	 Required Privileges -->
-    <privilege>
-        <name>App: mchapp</name>
-        <description>Allows user to Access MCH Clinic</description>
-    </privilege>
+<!--    <privilege>-->
+<!--        <name>App: mchapp</name>-->
+<!--        <description>Allows user to Access MCH Clinic</description>-->
+<!--    </privilege>-->
     <!--	 /Required Privileges -->
 
 
@@ -59,14 +59,7 @@
     </globalProperty>
     /Required Global Properties -->
     <!-- Required global properties -->
-    <globalProperty>
-        <property>fptab.includedInPNC</property>
-        <defaultValue>false</defaultValue>
-        <description>
-            To determine whether to include family planning tab in pnc if same clinician is serving both pnc and fp
-            patients
-        </description>
-    </globalProperty>
+
 
     <!--
     <dwr>
