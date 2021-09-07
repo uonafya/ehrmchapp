@@ -41,8 +41,8 @@
         <kenyacoreVersion>2.4.1</kenyacoreVersion>
         <kenyauiVersion>2.1.1</kenyauiVersion>
         <kenyaemrVersion>17.0.3</kenyaemrVersion>
-        <ehrconfigsVersion>1.0.0-SNAPSHOT</ehrconfigsVersion>
-        <hospitalcorVersion>1.0.0-SNAPSHOT</hospitalcorVersion>
+        <ehrconfigsVersion>1.0.0</ehrconfigsVersion>
+        <hospitalcorVersion>1.0.0</hospitalcorVersion>
         <metadatadeployVersion>1.3</metadatadeployVersion>
         <patientdashboardappVersion>1.0.1</patientdashboardappVersion>
         <ehrinventoryVersion>1.0.0</ehrinventoryVersion>
