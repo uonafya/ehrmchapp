@@ -9,7 +9,7 @@
 
     <groupId>org.openmrs.module</groupId>
     <artifactId>mchapp</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MCH App Module</name>
     <description>OpenMRS module to help track MCH visits</description>
@@ -41,11 +41,11 @@
         <kenyacoreVersion>2.4.1</kenyacoreVersion>
         <kenyauiVersion>2.1.1</kenyauiVersion>
         <kenyaemrVersion>17.0.3</kenyaemrVersion>
-        <ehrconfigsVersion>1.0.0-SNAPSHOT</ehrconfigsVersion>
-        <hospitalcorVersion>1.0.0-SNAPSHOT</hospitalcorVersion>
+        <ehrconfigsVersion>1.0.6-SNAPSHOT</ehrconfigsVersion>
+        <hospitalcorVersion>1.0.5-SNAPSHOT</hospitalcorVersion>
         <metadatadeployVersion>1.3</metadatadeployVersion>
-        <patientdashboardappVersion>1.0.1</patientdashboardappVersion>
-        <ehrinventoryVersion>1.0.0</ehrinventoryVersion>
+        <patientdashboardappVersion>1.0.6-SNAPSHOT</patientdashboardappVersion>
+        <ehrinventoryVersion>1.0.1-SNAPSHOT</ehrinventoryVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>
