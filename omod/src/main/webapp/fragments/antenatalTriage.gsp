@@ -207,7 +207,7 @@
 						<div>
 							<label></label>
 							<label style="padding-left: 0px; width: auto; cursor: pointer;">
-								<input type="checkbox" name="send_for_examination" value="11303942-75cd-442a-aead-ae1d2ea9b3eb" >
+								<input type="checkbox" name="send_for_examination" value="1acb3707-9e03-40e3-b157-ce28451c3fd0" >
 								Tick to Send to Examination Room
 							</label>
 						</div>

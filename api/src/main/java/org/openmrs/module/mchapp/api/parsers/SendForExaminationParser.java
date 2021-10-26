@@ -33,7 +33,8 @@ public class SendForExaminationParser {
 			String selectedCategory = "";
 			for (PersonAttribute pa : pas) {
 				PersonAttributeType attributeType = pa.getAttributeType();
-				if (attributeType.getPersonAttributeTypeId() == 14) {
+				if (attributeType.equals(Context.getPersonService().getPersonAttributeTypeByUuid(
+				    "09cd268a-f0f5-11ea-99a8-b3467ddbf779"))) {
 					selectedCategory = pa.getValue();
 				}
 			}
