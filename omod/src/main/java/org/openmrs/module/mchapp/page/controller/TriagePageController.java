@@ -17,7 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-@AppPage("mchapp.stores")
+@AppPage("patientqueueapp.mchtriage")
 public class TriagePageController {
 	
 	private static final int MAX_CWC_DURATION = 5;
