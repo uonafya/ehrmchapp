@@ -1,4 +1,4 @@
-<% ui.includeJavascript("billingui", "moment.js") %>
+<% ui.includeJavascript("ehrcashier", "moment.js") %>
 
 <% if (enrolledInAnc){ %>
 	<script id="patient-profile-template" type="text/template">

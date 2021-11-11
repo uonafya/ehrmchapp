@@ -1,6 +1,6 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "Mother Child Health"])
-    ui.includeJavascript("billingui", "moment.js")
+    ui.includeJavascript("ehrcashier", "moment.js")
     ui.includeJavascript("mchapp", "object-to-query-string.js")
     ui.includeJavascript("mchapp", "drugOrder.js")
 	ui.includeJavascript("mchapp", "includes-polyfill.js")

@@ -50,15 +50,13 @@
 				if ('${source?source:""}' == 'clinic' && programme != 'enrollInCwc') {
 					if (programme == 'enrollInAnc') {
 						jq('#ancDateEnrolled').val(jq('#date-enrolled-field').val());
-						//This will show the Dialog
-						jq("#enrollAncDialog").show();
-						//enrollAncDialog.show();
+						jq("#enrollAncDialog");
+						enrollAncDialog.show();
 
 					} else {
 						jq('#pncDateEnrolled').val(jq('#date-enrolled-field').val());
-						// This will show the Dialog
-						jq("#enrollPncDialog").show();
-						//enrollPncDialog.show();
+						jq("#enrollPncDialog");
+						enrollPncDialog.show();
 					}
 				} else {
 					handleEnrollInProgram("${ui.actionLink('mchapp', 'programSelection', '" + programme + "')}",

@@ -112,6 +112,7 @@ public class AntenatalTriageFragmentController {
 	        HttpServletRequest request) {
 		SimpleObject saveStatus = null;
 		PatientQueueService queueService = Context.getService(PatientQueueService.class);
+		
 		TriagePatientQueue queue = queueService.getTriagePatientQueueById(queueId);
 		try {
 			ClinicalForm form = ClinicalForm.generateForm(request, patient, null);
