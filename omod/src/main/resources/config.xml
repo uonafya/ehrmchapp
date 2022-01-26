@@ -18,7 +18,6 @@
         <require_module>org.openmrs.module.uicommons</require_module>
         <require_module>org.openmrs.module.uiframework</require_module>
         <require_module version="${hospitalcorVersion}">org.openmrs.module.hospitalcore</require_module>
-        <require_module version="${patientdashboardappVersion}">org.openmrs.module.patientdashboardapp</require_module>
         <require_module version="${ehrconfigsVersion}">org.openmrs.module.ehrconfigs</require_module>
         <require_module version="${ehrinventoryVersion}"> org.openmrs.module.ehrinventory</require_module>
         <require_module version="${metadatadeployVersion}">org.openmrs.module.metadatadeploy</require_module>
