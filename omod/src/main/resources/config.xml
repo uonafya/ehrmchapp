@@ -23,6 +23,7 @@
         <require_module version="${metadatadeployVersion}">org.openmrs.module.metadatadeploy</require_module>
         <require_module version="${kenyaemrVersion}">org.openmrs.module.kenyaemr</require_module>
         <require_module>org.openmrs.module.kenyaemr</require_module>
+        <require_module version="${patientdashboardappVersion}">org.openmrs.module.patientdashboardapp</require_module>
     </require_modules>
     <!-- Extensions -->
     <extension>
