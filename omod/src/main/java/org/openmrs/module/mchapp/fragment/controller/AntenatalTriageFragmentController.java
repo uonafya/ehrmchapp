@@ -1,17 +1,22 @@
 package org.openmrs.module.mchapp.fragment.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.openmrs.*;
+import org.openmrs.Concept;
+import org.openmrs.Encounter;
+import org.openmrs.Obs;
+import org.openmrs.Patient;
+import org.openmrs.PatientProgram;
+import org.openmrs.Person;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;
+import org.openmrs.module.hospitalcore.model.Referral;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
 import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
 import org.openmrs.module.mchapp.api.parsers.SendForExaminationParser;
-import org.openmrs.module.patientdashboardapp.model.Referral;
 import org.openmrs.ui.framework.SimpleObject;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.fragment.FragmentConfiguration;
@@ -22,7 +27,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by qqnarf on 4/27/16.

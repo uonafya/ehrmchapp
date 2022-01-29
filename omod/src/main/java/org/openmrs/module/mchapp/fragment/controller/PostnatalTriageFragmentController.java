@@ -1,7 +1,11 @@
 package org.openmrs.module.mchapp.fragment.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.openmrs.*;
+import org.openmrs.Concept;
+import org.openmrs.ConceptAnswer;
+import org.openmrs.Encounter;
+import org.openmrs.Obs;
+import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.PatientQueueService;

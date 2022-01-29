@@ -20,8 +20,6 @@ import org.openmrs.module.mchapp.api.MchEncounterService;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
-import org.openmrs.module.patientdashboardapp.model.Referral;
-import org.openmrs.module.patientdashboardapp.model.ReferralReasons;
 import org.openmrs.ui.framework.SimpleObject;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.fragment.FragmentConfiguration;
