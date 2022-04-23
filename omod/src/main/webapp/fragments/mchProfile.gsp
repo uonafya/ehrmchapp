@@ -1,5 +1,3 @@
-<% ui.includeJavascript("billingui", "moment.js") %>
-
 <% if (enrolledInAnc){ %>
 	<script id="patient-profile-template" type="text/template">
 		<div class="header-template" style="padding-left: 0px; font-size: 141%; font-weight: bold;">
