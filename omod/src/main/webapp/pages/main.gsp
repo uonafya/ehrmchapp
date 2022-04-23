@@ -1,10 +1,28 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "Mother Child Health"])
-    ui.includeJavascript("billingui", "moment.js")
+
+	ui.includeJavascript("uicommons", "datetimepicker/bootstrap-datetimepicker.min.js")
+	ui.includeJavascript("patientdashboardapp", "knockout-3.4.0.js")
+	ui.includeJavascript("ehrconfigs", "emr.js")
+
+	ui.includeJavascript("uicommons", "handlebars/handlebars.min.js")
+	ui.includeJavascript("uicommons", "navigator/validators.js")
+	ui.includeJavascript("uicommons", "navigator/navigator.js")
+	ui.includeJavascript("uicommons", "navigator/navigatorHandlers.js")
+	ui.includeJavascript("uicommons", "navigator/navigatorModels.js")
+	ui.includeJavascript("uicommons", "navigator/navigatorTemplates.js")
+	ui.includeJavascript("uicommons", "navigator/exitHandlers.js")
+
+	ui.includeJavascript("ehrcashier", "moment.js")
     ui.includeJavascript("mchapp", "object-to-query-string.js")
     ui.includeJavascript("mchapp", "drugOrder.js")
 	ui.includeJavascript("mchapp", "includes-polyfill.js")
-    ui.includeCss("registration", "onepcssgrid.css")
+
+	ui.includeCss("ehrconfigs", "onepcssgrid.css")
+	ui.includeCss("patientdashboardapp", "patientdashboardapp.css");
+	ui.includeCss("ehrconfigs", "referenceapplication.css")
+	ui.includeCss("uicommons", "datetimepicker.css")
+
 %>
 <script type="text/javascript">
     var successUrl = "${ui.pageLink('mchapp','main',[patientId: patient, queueId: queueId])}";
