@@ -1,7 +1,3 @@
-<%
-	ui.includeJavascript("ehrcashier", "moment.js")
-%>
-
 <script>
 	jq(document).ready(function () {
 
